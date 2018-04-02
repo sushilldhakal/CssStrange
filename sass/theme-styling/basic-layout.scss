@@ -1,40 +1,30 @@
 ::-moz-selection { /* Code for Firefox */
-    color: #fff;
-    background-color: #f83531;
+    color: $white;
+    background-color: $primary;
 }
 
 ::selection {
-    color: #fff; 
-    background-color: #f83531;
+    color: $white; 
+    background-color: $primary;
 }
-
-
 .collapse{
   display:none;
-
   &.in{
     display:block;
   }
 } 
-
 .no-list-style{
   list-style:none;
 }
-
 .fade {
   opacity: 0;
   -webkit-transition: opacity 0.15s linear;
   -o-transition: opacity 0.15s linear;
   transition: opacity 0.15s linear;
-}
-.fade.in {
-  opacity: 1;
-}
-.collapse {
-  display: none;
-}
-.collapse.in {
-  display: block;
+
+  &.in {
+    opacity: 1;
+  }
 }
 tr.collapse.in {
   display: table-row;
@@ -56,223 +46,214 @@ tbody.collapse.in {
   -o-transition-timing-function: ease;
      transition-timing-function: ease;
 }
-.clearfix:before,
-.clearfix:after {
-  content: " ";
-  display: table;
-}
-.clearfix:after {
-  clear: both;
-}
+.clearfix{
+  @include clearfix();
+} 
 
+//button styling
 .btn {
-    display: inline-block;
+    display: inline;
     font-weight: 400;
     text-align: center;
     white-space: nowrap;
     vertical-align: middle;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
-    border: 1px solid transparent;
-    padding: .375rem .75rem;
-    font-size: 1rem;
-    line-height: 1.5;
-    border-radius: .25rem;
-    transition: color .15s ease-in-out,background-color .15s ease-in-out,
-    border-color .15s ease-in-out,box-shadow .15s ease-in-out;
-}
+    @include no-select();
+    @include border-all( 1px, solid, transparent);
+    @include padding(.375rem, .75rem,.375rem, .75rem);
+    @include rhythm(16, 1.5);
+    @include border-radius(0.25rem);
+    @include transition(transition, color .15s, background-color .15s, border-color .15s);
+    @include transition-timing-function(ease-in-out);
 
-.btn-primary{
-    border-color: #f83632;
-    background-color: #f83632;
-    color: #fff;
+  &-primary{
+    border-color: $primary;
+    background-color: $primary;
+    color: $white;
 
     &:hover{
       background-color: transparent;
-      color:#f83632;
+      color:$primary;
     }
-}
-
-.btn-outline-primary {
-    border: 2px solid #f83632;
-    background-color: transparent;
-    color: #f83632;
-
-    &:hover{
-      background-color: #f83632;
-      color:#fff;
-    }
-}
-.btn-default{
-    border-color: #2bbbad;
-    background-color: #2bbbad;
-    color: #fff;
-
-    &:hover{
+  }
+  
+  &-outline-primary {
+      border: 2px solid $primary;
       background-color: transparent;
-      color:#2bbbad;
-    }
-}
-.btn-outline-default {
-    border: 2px solid #2bbbad;
-    background-color: transparent;
-    color: #2bbbad;
-
-    &:hover{
-      background-color: #2bbbad;
-      color:#fff;
-    }
-}
-.btn-secondary{
-    border-color: #dd785a;
-    background-color: #dd785a;
-    color: #fff;
-
-    &:hover{
+      color: $primary;
+  
+      &:hover{
+        background-color: $primary;
+        color:$white;
+      }
+  }
+  &-default{
+      border-color: $default;
+      background-color: $default;
+      color: $white;
+  
+      &:hover{
+        background-color: transparent;
+        color:$default;
+      }
+  }
+  &-outline-default {
+      border: 2px solid $default;
       background-color: transparent;
-      color:#dd785a;
-    }
-}
-.btn-outline-secondary {
-    border: 2px solid #dd785a;
-    background-color: transparent;
-    color: #dd785a;
-
-    &:hover{
-      background-color: #dd785a;
-      color:#fff;
-    }
-}
-.btn-sucess{
-    border-color: #28a745;
-    background-color: #28a745;
-    color: #fff;
-
-    &:hover{
+      color: $default;
+  
+      &:hover{
+        background-color: $default;
+        color:$white;
+      }
+  }
+  &-secondary{
+      border-color: $secondary;
+      background-color: $secondary;
+      color: $white;
+  
+      &:hover{
+        background-color: transparent;
+        color:$secondary;
+      }
+  }
+  &-outline-secondary {
+      border: 2px solid $secondary;
       background-color: transparent;
-      color:#28a745;
-    }
-}
-.btn-outline-sucess {
-    border: 2px solid #28a745;
-    background-color: transparent;
-    color: #28a745;
-
-    &:hover{
-      background-color: #28a745;
-      color:#fff;
-    }
-}
-.btn-info{
-    border-color: #0069d9;
-    background-color: #0069d9;
-    color: #fff;
-
-    &:hover{
+      color: $secondary;
+  
+      &:hover{
+        background-color: $secondary;
+        color:$white;
+      }
+  }
+  &-sucess{
+      border-color: $sucess;
+      background-color: $sucess;
+      color: $white;
+  
+      &:hover{
+        background-color: transparent;
+        color:$sucess;
+      }
+  }
+  &-outline-sucess {
+      border: 2px solid $sucess;
       background-color: transparent;
-      color:#0069d9;
-    }
-}
-.btn-outline-info {
-    border: 2px solid #0069d9;
-    background-color: transparent;
-    color: #0069d9;
-
-    &:hover{
-      background-color: #0069d9;
-      color:#fff;
-    }
-}
-.btn-warning{
-    border-color: #f80;
-    background-color: #f80;
-    color: #fff;
-
-    &:hover{
+      color: $sucess;
+  
+      &:hover{
+        background-color: $sucess;
+        color:$white;
+      }
+  }
+  &-info{
+      border-color: $info;
+      background-color: $info;
+      color: $white;
+  
+      &:hover{
+        background-color: transparent;
+        color:$info;
+      }
+  }
+  &-outline-info {
+      border: 2px solid $info;
       background-color: transparent;
-      color:#f80;
-    }
-}
-.btn-outline-warning {
-    border: 2px solid #f80;
-    background-color: transparent;
-    color: #f80;
-
-    &:hover{
-      background-color: #f80;
-      color:#fff;
-    }
-}
-.btn-danger{
-    border-color: #b21f2d;
-    background-color: #b21f2d;
-    color: #fff;
-
-    &:hover{
+      color: $info;
+  
+      &:hover{
+        background-color: $info;
+        color:$white;
+      }
+  }
+  &-warning{
+      border-color: $warning;
+      background-color: $warning;
+      color: $white;
+  
+      &:hover{
+        background-color: transparent;
+        color:$warning;
+      }
+  }
+  &-outline-warning {
+      border: 2px solid $warning;
       background-color: transparent;
-      color:#b21f2d;
-    }
-}
-.btn-outline-danger {
-    border: 2px solid #b21f2d;
-    background-color: transparent;
-    color: #b21f2d;
-
-    &:hover{
-      background-color: #b21f2d;
-      color:#fff;
-    }
-}
-
-.btn-black{
-    border-color: #000;
-    background-color: #000;
-    color: #fff;
-
-    &:hover{
+      color: $warning;
+  
+      &:hover{
+        background-color: $warning;
+        color:$white;
+      }
+  }
+  &-danger{
+      border-color: $danger;
+      background-color: $danger;
+      color: $white;
+  
+      &:hover{
+        background-color: transparent;
+        color:$danger;
+      }
+  }
+  &-outline-danger {
+      border: 2px solid $danger;
       background-color: transparent;
-      color:#000;
-    }
-}
-.btn-outline-black {
-    border: 2px solid #000;
-    background-color: transparent;
-    color: #000;
-
-    &:hover{
-      background-color: #000;
-      color:#fff;
-    }
-}
-
-.btn-lg{
-  padding:0.7rem 2rem;
-}
-.btn-sm{
-  padding:0.4rem 1rem;
-}
-
-.btn-rounded{
-  border-radius:30px;
-}
-.btn.disabled{
-    pointer-events: none;
-    opacity: .65;
+      color: $danger;
+  
+      &:hover{
+        background-color: $danger;
+        color:$white;
+      }
+  }
+  
+  &-black{
+      border-color: $black;
+      background-color: $black;
+      color: $white;
+  
+      &:hover{
+        background-color: transparent;
+        color:$black;
+      }
+  }
+  &-outline-black {
+      border: 2px solid $black;
+      background-color: transparent;
+      color: $black;
+  
+      &:hover{
+        background-color: $black;
+        color:$white;
+      }
+  }
+  
+  &-lg{
+    @include padding(0.7rem, 2rem,0.7rem, 2rem);
+  }
+  &-sm{
+    @include padding(0.4rem, 1rem, 0.4rem, 1rem);
+  }
+  &-rounded{
+    @include border-radius(30px);
+  }
+  &.disabled{
+      pointer-events: none;
+      @include opacity(.65);
+  }
 }
 .center-block {
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
+  @include center-block();
 }
-.pull-right {
-  float: right !important;
+.pull{
+  &-right {
+    float: right !important;
+  }
+  &-left {
+    float: left !important;
+  }
 }
-.pull-left {
-  float: left !important;
-}
-.hide {
+.hide,.hidden {
   display: none !important;
 }
 .show {
@@ -288,78 +269,74 @@ tbody.collapse.in {
   background-color: transparent;
   border: 0;
 }
-.hidden {
-  display: none !important;
-}
 .affix {
   position: fixed;
 }
-
-.text-justify {
-  text-align: justify;
-}
-.text-nowrap {
-  white-space: nowrap;
-}
-.text-truncate {
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-}
-.text-left {
-  text-align: left;
-}
-.text-right {
-  text-align: right;
-}
-.text-center {
-  text-align: center;
-}
-@media (min-width: 576px) {
-  .text-sm-left {
-    text-align: left;
-  }
-  .text-sm-right {
-    text-align: right;
-  }
-  .text-sm-center {
-    text-align: center;
-  }
-}
-@media (min-width: 768px) {
-  .text-md-left {
-    text-align: left;
-  }
-  .text-md-right {
-    text-align: right;
-  }
-  .text-md-center {
-    text-align: center;
-  }
-}
-@media (min-width: 992px) {
-  .text-lg-left {
-    text-align: left;
-  }
-  .text-lg-right {
-    text-align: right;
-  }
-  .text-lg-center {
-    text-align: center;
-  }
-}
-@media (min-width: 1200px) {
-  .text-xl-left {
-    text-align: left;
-  }
-  .text-xl-right {
-    text-align: right;
-  }
-  .text-xl-center {
-    text-align: center;
-  }
-}
 .text{
+  &-justify {
+    text-align: justify;
+  }
+  &-nowrap {
+    white-space: nowrap;
+  }
+  &-truncate {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+  &-left {
+    text-align: left;
+  }
+  &-right {
+    text-align: right;
+  }
+  &-center {
+    text-align: center;
+  }
+  @include mob{
+    &-sm-left {
+      text-align: left;
+    }
+    &-sm-right {
+      text-align: right;
+    }
+    &-sm-center {
+      text-align: center;
+    }
+  }
+  @include tab-screen{
+    &-md-left {
+      text-align: left;
+    }
+    &-md-right {
+      text-align: right;
+    }
+    &-md-center {
+      text-align: center;
+    }
+  }
+  @include mid-screen{
+    &-lg-left {
+      text-align: left;
+    }
+    &-lg-right {
+      text-align: right;
+    }
+    &-lg-center {
+      text-align: center;
+    }
+  }
+  @include large-screen{
+    &-xl-left {
+      text-align: left;
+    }
+    &-xl-right {
+      text-align: right;
+    }
+    &-xl-center {
+      text-align: center;
+    }
+  }
   &-lowercase {
     text-transform: lowercase;
   }
@@ -391,62 +368,66 @@ tbody.collapse.in {
     font-style: italic;
   }
 }
-
-
 .text{
   &-white {
-    color: #fff;
+    color: $white;
   }
   &-primary {
-    color: #f44335;
+    color: $primary;
     &[href]:hover,&[href]:focus{
-      color: #0062cc;
+      color: darken($primary, 15%);
+    }
+  }
+  &-default {
+    color: $default;
+    &[href]:hover,&[href]:focus{
+      color: darken($default, 15%);
     }
   }
   &-secondary {
-    color: #6c757d;
+    color: $secondary;
     &[href]:hover,&[href]:focus{
-      color: #545b62;
+      color: darken($secondary, 15%);
     }
   }
   &-success {
-    color: #28a745;
+    color: $sucess;
     &[href]:hover,&[href]:focus{
-      color: #1e7e34;
+      color: darken($sucess, 15%);
     }
   }
   &-info {
-    color: #17a2b8;
+    color: $info;
     &[href]:hover,&[href]:focus{
-      color: #117a8b;
+      color: darken($info, 15%);
     }
   }
   &-warning {
-    color: #ffc107;
+    color: $warning;
     &[href]:hover,&[href]:focus{
-      color: #d39e00;
+      color: darken($warning, 15%);
     }
   }
   &-danger {
-    color: #dc3545;
+    color: $danger;
     &[href]:hover,&[href]:focus{
-      color: #bd2130;
+      color: darken($danger, 15%);
     }
   }
   &-light {
-    color: #f8f9fa;
+    color: $light-white;
     &[href]:hover,&[href]:focus{
-      color: #dae0e5;
+      color: darken($light-white, 15%);
     }
   }
   &-dark {
-    color: #333;
+    color: $dark-black;
     &[href]:hover,&[href]:focus{
-      color: #1d2124;
+      color: darken($dark-black, 15%);
     }
   }
   &-muted {
-    color: #6c757d;
+    color: $muted;
   }
   &-hide {
     font: 0/0 a;
@@ -465,109 +446,95 @@ tbody.collapse.in {
   visibility: hidden;
 }
 
-.bg-primary {
-  background-color: #f44335;
-}
+.bg{
+  &-primary {
+    background-color: $primary;
+    &[href]:hover, 
+    &[href]:focus{
+      background-color: darken($primary, 15%);
+      color:$white;
+    }
+  }
+  &-secondary {
+    background-color: $secondary;
+    &[href]:hover, 
+    &[href]:focus{
+      background-color: darken($secondary, 15%);
+      color:$white;
+    }
+  }
 
-a.bg-primary:hover, a.bg-primary:focus,
-button.bg-primary:hover,
-button.bg-primary:focus {
-  background-color: #0062cc;
+  &-success {
+    background-color: $sucess;
+    &[href]:hover, 
+    &[href]:focus{
+      background-color: darken($sucess, 15%);
+      color:$white;
+    }
+  }
+  &-info {
+    background-color: $info;
+    &[href]:hover, 
+    &[href]:focus{
+      background-color: darken($info, 15%);
+      color:$white;
+    }
+  }
+  &-warning {
+    background-color: $warning;
+    &[href]:hover, 
+    &[href]:focus{
+      background-color: darken($warning, 15%);
+      color:$white;
+    }
+  }
+  &-danger {
+    background-color: $danger;
+    &[href]:hover, 
+      &[href]:focus{
+        background-color: darken($danger, 15%);
+        color:$white;
+      }
+  }
+  &-light {
+    background-color: $light-white;
+    &[href]:hover, 
+      &[href]:focus{
+        background-color: darken($light-white, 15%);
+      }
+  }
+  &-dark {
+    background-color: $dark-black;
+    &[href]:hover, 
+      &[href]:focus{
+        background-color: darken($dark-black, 15%);;
+        color:$white;
+      }
+  }
+  &-black{
+    background-color: $black;
+  }
+  &-white {
+    background-color: $white;
+  }
+  &-transparent {
+    background-color: transparent;
+  }
 }
-
-.bg-secondary {
-  background-color: #6c757d;
-}
-
-a.bg-secondary:hover, a.bg-secondary:focus,
-button.bg-secondary:hover,
-button.bg-secondary:focus {
-  background-color: #545b62;
-}
-
-.bg-success {
-  background-color: #28a745;
-}
-
-a.bg-success:hover, a.bg-success:focus,
-button.bg-success:hover,
-button.bg-success:focus {
-  background-color: #1e7e34;
-}
-
-.bg-info {
-  background-color: #17a2b8;
-}
-
-a.bg-info:hover, a.bg-info:focus,
-button.bg-info:hover,
-button.bg-info:focus {
-  background-color: #117a8b;
-}
-
-.bg-warning {
-  background-color: #ffc107;
-}
-
-a.bg-warning:hover, a.bg-warning:focus,
-button.bg-warning:hover,
-button.bg-warning:focus {
-  background-color: #d39e00;
-}
-
-.bg-danger {
-  background-color: #dc3545;
-}
-
-a.bg-danger:hover, a.bg-danger:focus,
-button.bg-danger:hover,
-button.bg-danger:focus {
-  background-color: #bd2130;
-}
-
-.bg-light {
-  background-color: #f8f9fa;
-}
-
-a.bg-light:hover, a.bg-light:focus,
-button.bg-light:hover,
-button.bg-light:focus {
-  background-color: #dae0e5;
-}
-
-.bg-dark {
-  background-color: #343a40;
-}
-.bg-black{
-  background-color: #000;
-}
-a.bg-dark:hover, a.bg-dark:focus,
-button.bg-dark:hover,
-button.bg-dark:focus {
-  background-color: #1d2124;
-}
-
-.bg-white {
-  background-color: #fff;
-}
-
-.bg-transparent {
-  background-color: transparent;
-}
-
+  
 .border {
-  border: 1px solid #dee2e6;
+  @include border-all(1px, solid, $border-color);
   &-top {
-    border-top: 1px solid #dee2e6;
+    @include border('top',1px,solid,$border-color);
   }
   &-right {
-    border-right: 1px solid #dee2e6;
+    @include border('right',1px,solid,$border-color);
   }
   &-bottom {
-    border-bottom: 1px solid #dee2e6;
+    @include border('bottom',1px,solid,$border-color);
   }
   &-left {
-    border-left: 1px solid #dee2e6;
+    @include border('left',1px,solid,$border-color);
   }
   &-0 {
     border: 0;
@@ -585,68 +552,55 @@ button.bg-dark:focus {
     border-left: 0;
   }
   &-primary {
-    border-color: #f44335;
+    border-color: $primary;
   }
   &-secondary {
-    border-color: #6c757d;
+    border-color: $secondary;
   }
   &-success {
-    border-color: #28a745;
+    border-color: $sucess;
   }
   &-info {
-    border-color: #17a2b8;
+    border-color: $info;
   }
   &-warning {
-    border-color: #ffc107;
+    border-color: $warning;
   }
   &-danger {
-    border-color: #dc3545;
+    border-color: $danger;
   }
   &-light {
-    border-color: #f8f9fa;
+    border-color: $light-white;
   }
   &-dark {
-    border-color: #343a40;
+    border-color: $dark-black;
   }
   &-white {
-    border-color: #fff;
+    border-color: $white;
   }
 }
 
 
 .rounded {
-  border-radius: 0.25rem;
+  @include border-radius(0.25rem);
   &-top {
-    border-top-left-radius: 0.25rem;
-    border-top-right-radius: 0.25rem;
+    @include border-top-radius(0.25rem)
   }
   &-right {
-    border-top-right-radius: 0.25rem;
-    border-bottom-right-radius: 0.25rem;
+    @include border-right-radius(0.25rem)
   }
   &-bottom {
-    border-bottom-right-radius: 0.25rem;
-    border-bottom-left-radius: 0.25rem;
+    @include border-bottom-radius(0.25rem)
   }
   &-left {
-    border-top-left-radius: 0.25rem;
-    border-bottom-left-radius: 0.25rem;
+    @include border-left-radius(0.25rem)
   }
   &-circle {
-    border-radius: 50%;
+    @include border-radius(50%);
   }
   &-0 {
-    border-radius: 0;
+    @include border-radius(0);
   }
-}
-
-
-
-
-.clearfix::after {
-  display: block;
-  clear: both;
-  content: "";
 }
 
 .d {
@@ -673,56 +627,48 @@ button.bg-dark:focus {
   }
 }
 
-
 .embed-responsive {
   position: relative;
   display: block;
   width: 100%;
   padding: 0;
   overflow: hidden;
+  &:before {
+    display: block;
+    content: "";
+  }
+  .embed-responsive-item,
+  iframe,
+  embed,
+  object,
+  video {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
+  }
+  &-21by9::before {
+    @include padding(42.857143%, null, null,null);
+  }
+  &-16by9::before {
+    @include padding(56.25%, null, null,null);
+  }
+  &-4by3::before {
+    @include padding(75%, null, null,null);
+  }
+  &-1by1::before {
+    @include padding(100%, null, null,null);
+  }
 }
-
-.embed-responsive::before {
-  display: block;
-  content: "";
-}
-
-.embed-responsive .embed-responsive-item,
-.embed-responsive iframe,
-.embed-responsive embed,
-.embed-responsive object,
-.embed-responsive video {
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  border: 0;
-}
-
-.embed-responsive-21by9::before {
-  padding-top: 42.857143%;
-}
-
-.embed-responsive-16by9::before {
-  padding-top: 56.25%;
-}
-
-.embed-responsive-4by3::before {
-  padding-top: 75%;
-}
-
-.embed-responsive-1by1::before {
-  padding-top: 100%;
-}
-
 .alert {
   position: relative;
-  padding: 0.75rem 1.25rem;
-  margin-bottom: 1rem;
-  border: 1px solid transparent;
-  border-radius: 0.25rem;
+  @include padding(0.75rem, 1.25rem, 0.75rem, 1.25rem);
+  @include margin(null,null,1rem,null);
+  @include border-all(1px,solid,transparent);
+  @include border-radius(0.25rem);
 
   &-heading {
     color: inherit;
@@ -731,98 +677,98 @@ button.bg-dark:focus {
     font-weight: 700;
   }
   &-dismissible {
-    padding-right: 4rem;
+    @include padding(null, 4rem, null,null);
     .close {
       position: absolute;
       top: 0;
       right: 0;
-      padding: 0.75rem 1.25rem;
+      @include padding(0.75rem, 1.25rem, 0.75rem, 1.25rem);
       color: inherit;
     }
   }
   &-primary {
-    color: #004085;
-    background-color: #cce5ff;
-    border-color: #b8daff;
+    color: $white;
+    background-color:rgba($primary, .8 );
+    border-color: darken($primary, 5%);
     hr {
-      border-top-color: #9fcdff;
+      border-top-color: lighten($primary, 5%);
     }
     .alert-link {
       color: #002752;
     }
   }
   &-secondary {
-    color: #383d41;
-    background-color: #e2e3e5;
-    border-color: #d6d8db;
+    color: $white;
+    background-color:rgba($secondary, .8 );
+    border-color: darken($secondary, 5%);
     hr {
-      border-top-color: #c8cbcf;
+      border-top-color: lighten($secondary, 5%);
     }
     .alert-link {
       color: #202326;
     }
   }
   &-success {
-    color: #155724;
-    background-color: #d4edda;
-    border-color: #c3e6cb;
+    color: $white;
+    background-color:rgba($sucess, .8 );
+    border-color: darken($sucess, 5%);
     hr {
-      border-top-color: #b1dfbb;
+      border-top-color: lighten($sucess, 5%);
     }
     .alert-link {
       color: #0b2e13;
     }
   }
   &-info {
-    color: #0c5460;
-    background-color: #d1ecf1;
-    border-color: #bee5eb;
+    color: $white;
+    background-color:rgba($info, .8 );
+    border-color: darken($info, 5%);
     hr {
-      border-top-color: #abdde5;
+      border-top-color: lighten($info, 5%);
     }
     .alert-link {
       color: #062c33;
     }
   }
   &-warning {
-    color: #856404;
-    background-color: #fff3cd;
-    border-color: #ffeeba;
+    color: $white;
+    background-color:rgba($warning, .8 );
+    border-color: darken($warning, 5%);
     hr {
-      border-top-color: #ffe8a1;
+      border-top-color: lighten($warning, 5%);
     }
     .alert-link {
       color: #533f03;
     }
   }
   &-danger {
-    color: #721c24;
-    background-color: #f8d7da;
-    border-color: #f5c6cb;
-     hr {
-      border-top-color: #f1b0b7;
+    color: $white;
+    background-color:rgba($danger, .8 );
+    border-color: darken($danger, 5%);
+    hr {
+      border-top-color: lighten($danger, 5%);
     }
     .alert-link {
       color: #491217;
     }
   }
   &-light {
-    color: #818182;
-    background-color: #fefefe;
-    border-color: #fdfdfe;
+    color: $dark-black;
+    background-color:rgba($light-white, .8 );
+    border-color: darken($light-white, 5%);
     hr {
-      border-top-color: #ececf6;
+      border-top-color: lighten($light-white, 5%);
     }
     .alert-link {
       color: #686868;
     }
   }
   &-dark {
-    color: #1b1e21;
-    background-color: #d6d8d9;
-    border-color: #c6c8ca;
+    color: $white;
+    background-color:rgba($dark-black, .8 );
+    border-color: darken($dark-black, 5%);
     hr {
-      border-top-color: #b9bbbe;
+      border-top-color: lighten($dark-black, 5%);
     }
     .alert-link {
       color: #040505;
@@ -850,37 +796,37 @@ button.bg-dark:focus {
     border-radius: 10rem;
   }
   &-primary {
-    color: #fff;
-    background-color: #f44335;
+    color: $white;
+    background-color: $primary;
     &[href]:hover,&[href]:focus{
-      color: #fff;
+      color: $white;
       text-decoration: none;
-      background-color: #0062cc;
+      background-color: darken($primary, 15%);
     }
   }
   &-secondary {
-    color: #fff;
+    color: $white;
     background-color: #6c757d;
     &[href]:hover,&[href]:focus{
-      color: #fff;
+      color: $white;
       text-decoration: none;
       background-color: #545b62;
     }
   }
   &-success {
-    color: #fff;
-    background-color: #28a745;
+    color: $white;
+    background-color: $sucess;
     &[href]:hover,&[href]:focus{
-      color: #fff;
+      color: $white;
       text-decoration: none;
       background-color: #1e7e34;
     }
   }
   &-info {
-    color: #fff;
-    background-color: #17a2b8;
+    color: $white;
+    background-color: $info;
     &[href]:hover,&[href]:focus{
-      color: #fff;
+      color: $white;
       text-decoration: none;
       background-color: #117a8b;
     }
@@ -895,11 +841,11 @@ button.bg-dark:focus {
     }
   }
   &-danger {
-    color: #fff;
+    color: $white;
     background-color: #dc3545;
 
     &[href]:hover,&[href]:focus{
-      color: #fff;
+      color: $white;
       text-decoration: none;
       background-color: #bd2130;
     }
@@ -915,10 +861,10 @@ button.bg-dark:focus {
     }
   }
   &-dark {
-    color: #fff;
+    color: $white;
     background-color: #343a40;
     &[href]:hover,&[href]:focus{
-      color: #fff;
+      color: $white;
       text-decoration: none;
       background-color: #1d2124;
     }
@@ -932,21 +878,21 @@ button.bg-dark:focus {
  * Margin Sets
  */
 
-$mt-number: mt !default;
-$mr-number: mr !default;
-$mb-number: mb !default;
-$ml-number: ml !default;
-$mv-number: mv !default;
-$mh-number: mh !default;
-$m-number: m !default;
+$mt-number: mt;
+$mr-number: mr;
+$mb-number: mb;
+$ml-number: ml;
+$mv-number: mv;
+$mh-number: mh;
+$m-number: m;
 
-$pt-number: pt !default;
-$pr-number: pr !default;
-$pb-number: pb !default;
-$pl-number: pl !default;
-$pv-number: pv !default;
-$ph-number: ph !default;
-$p-number: p !default;
+$pt-number: pt;
+$pr-number: pr;
+$pb-number: pb;
+$pl-number: pl;
+$pv-number: pv;
+$ph-number: ph;
+$p-number: p;
 
 $i: 0;
 
@@ -1263,6 +1209,18 @@ $i: 0;
 }
 @media (min-width:992px){
     .hidden-under-sm{
+        display:none;
+    }
+}
+
+@media (max-width:767.99px){
+    .hidden-above-xs{
+        display:none;
+    }
+    
+}
+@media (min-width:768px){
+    .visible-under-xs{
         display:none;
     }
 }

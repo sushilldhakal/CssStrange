@@ -1,0 +1,31 @@
+//color
+
+$white: #fff;
+$black: #000;
+
+$color_red_orange:       #f83632;
+$color_azure_radiance:   #007bff;
+$color_terracotta:       #dd785a;
+$color_sea_green:        #28a745;
+$color_science_blue:     #0069d9;
+$color_pizazz:           #f80;
+$color_tall_poppy:       #b21f2d;
+$color_light_white:      #f8f8f8;
+$color_dark_black:       #333;
+$color_pale_sky:         #6c757d;
+$color_border_default:   #e0e0e0;
+
+
+$primary:               $color_red_orange;
+$default:               $color_azure_radiance;
+$secondary:             $color_terracotta;
+$sucess:                $color_sea_green;
+$info:                  $color_science_blue;
+$warning:               $color_pizazz;
+$danger:                $color_tall_poppy;
+$light-white:           $color_light_white;
+$dark-black:            $color_dark_black;
+$muted:                 $color_pale_sky;
+$border-color:          $color_border_default;
+
+
