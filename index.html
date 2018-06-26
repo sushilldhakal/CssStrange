@@ -5,662 +5,749 @@
 <title>Normalize CSS: UI tests</title>
 <script src="https://rawgit.com/aFarkas/html5shiv/gh-pages/dist/html5shiv.min.js"></script>
 <link rel="stylesheet" href="css/style.css">
-<style>
-  /*! suit-test v0.1.0 | MIT License | github.com/suitcss */
-  .Test {
-    background: #fff;
-    counter-reset: test-describe;
-  }
-  .Test-describe:before {
-    content: counter(test-describe);
-    counter-increment: test-describe;
-  }
-  .Test-describe {
-    counter-reset: test-it;
-  }
-  .Test-it:before {
-    content: counter(test-describe) "." counter(test-it);
-    counter-increment: test-it;
-  }
-  .Test-title {
-    font-size: 2em;
-    font-family: sans-serif;
-    padding: 20px;
-    margin: 20px 0;
-    background: #eee;
-    color: #999;
-  }
-  .Test-describe,
-  .Test-it {
-    background: #eee;
-    border-left: 5px solid #666;
-    color: #666;
-    font-family: sans-serif;
-    font-weight: bold;
-    margin: 20px 0;
-    padding: 0.75em 20px;
-  }
-  .Test-describe {
-    font-size: 1.5em;
-    margin: 60px 0 20px;
-  }
-  .Test-describe:before,
-  .Test-it:before {
-    color: #999;
-    display: inline-block;
-    margin-right: 10px;
-    min-width: 30px;
-    text-transform: uppercase;
-  }
-  /* Custom helpers */
-  /**
-   * Test whether the body's margin has been removed
-   */
-  body {
-    background: red;
-  }
-  /**
-   * Highlight the bounds of direct children of a test block
-   */
-  .Test-run--highlightEl > * {
-    outline: 1px solid #ADD8E6;
-  }
-</style>
+<link rel="stylesheet" type="text/css" href="css/ripple.css">
+<link rel="stylesheet" type="text/css" href="css/demo.css">
+<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css">
 
-<div class="Test">
-  .
+<body>
+  
+    <div class="container">
 
-  <h1 class="Test-title"><a href="https://github.com/necolas/normalize.css">Normalize.css</a>: UI tests</h1>
+       <div class="row text-center">
 
-  <h2 class="Test-describe"><code>html</code></h2>
-  <h3 class="Test-it">should have a line height of 1.15</h3>
-  <div class="Test-run">
-    abcdefghijklmnopqrstuvwxyz
-  </div>
 
-  <h2 class="Test-describe"><code>body</code></h2>
-  <h3 class="Test-it">should have no margin (opinionated)</h3>
-  <div class="Test-run">
-    (there should be no red background visible on this page)
-  </div>
+        <div class="col-sm-12 mt-30">
 
-  <h2 class="Test-describe">
-    <code>article</code>, <code>aside</code>, <code>details</code>,
-    <code>figure</code>, <code>figcaption</code>, <code>footer</code>,
-    <code>header</code>, <code>main</code>,
-    <code>menu</code>, <code>nav</code>, <code>section</code>,
-    <code>summary</code>
-  </h2>
-  <h3 class="Test-it">should render as block</h3>
-  <div class="Test-run Test-run--highlightEl">
-    <article>article</article>
-    <aside>aside</aside>
-    <details>
-      <summary>summary</summary>
-      details
-    </details>
-    <figure>
-      figure
-      <figcaption>figcaption</figcaption>
-    </figure>
-    <footer>footer</footer>
-    <header>header</header>
-    <main>main</main>
-    <menu><li>menu</li></menu>
-    <nav>nav</nav>
-    <section>section</section>
-  </div>
+          <h2 class="section-heading mb-20  h1 mt-0">Buttons</h2>
 
-  <h2 class="Test-describe"><code>audio</code>, <code>canvas</code>, <code>progress</code>, <code>video</code></h2>
-  <h3 class="Test-it">should render as inline-block and baseline-aligned</h3>
-  <div class="Test-run Test-run--highlightEl">
-    <audio controls>audio</audio>
-    <canvas>canvas</canvas>
-    <progress>progress</progress>
-    <video controls>video</video>
-  </div>
+          <button class="btn rippler rippler-inverse rounded-0 btn-primary">Primary</button>
+          <button class="btn rippler rippler-inverse rounded-0 btn-default">Default</button>
+          <button class="btn rippler rippler-inverse rounded-0 btn-secondary">Secondary</button>
+          <button class="btn rippler rippler-inverse rounded-0 btn-success">Success</button>
+          <button class="btn rippler rippler-inverse rounded-0 btn-info">Info</button>
+          <button class="btn rippler rippler-inverse rounded-0 btn-warning">Warning</button>
+          <button class="btn rippler rippler-inverse rounded-0 btn-danger">Danger</button>
+          <button class="btn rippler rippler-inverse rounded-0 btn-black">Black</button>
+        </div>
 
-  <h2 class="Test-describe"><code>audio:not([controls])</code>, <code>template</code>, <code>[hidden]</code></h2>
-  <h3 class="Test-it">should not display</h3>
-  <div class="Test-run Test-run--highlightEl">
-    <audio>audio</audio>
-    <template>
-      <h1>{{title}}</h1>
-      <content></content>
-    </template>
-    <p hidden>This should be hidden</p>
-  </div>
+        <div class="col-sm-12 mt-30">
 
-  <h2 class="Test-describe"><code>a</code></h2>
-  <h3 class="Test-it">should have a transparent background when active</h3>
-  <div class="Test-run">
-    <a href="#non">dummy anchor</a>
-  </div>
-  <h3 class="Test-it">should not skip underlines</h3>
-  <div class="Test-run">
-    <a href="#non">quip and jig</a>
-  </div>
-  <h3 class="Test-it">should not have a focus outline when both focused and hovered (opinionated)</h3>
-  <div class="Test-run">
-    <a href="#non">dummy anchor</a>
-  </div>
+            <h2 class="section-heading mb-20  h1 mt-0">Buttons with outlines</h2>
 
-  <h2 class="Test-describe"><code>abbr[title]</code></h2>
-  <h3 class="Test-it">should have a dotted underline with a solid underline as a fallback</h3>
-  <div class="Test-run">
-    <abbr title="abbreviation">abbr</abbr>
-  </div>
+            <button class="btn rippler rippler-default rounded-0 btn-outline-primary">Primary</button>
+            <button class="btn rippler rippler-default rounded-0 btn-outline-default">Default</button>
+            <button class="btn rippler rippler-default rounded-0 btn-outline-secondary">Secondary</button>
+            <button class="btn rippler rippler-default rounded-0 btn-outline-success">Success</button>
+            <button class="btn rippler rippler-default rounded-0 btn-outline-info">Info</button>
+            <button class="btn rippler rippler-default rounded-0 btn-outline-warning">Warning</button>
+            <button class="btn rippler rippler-default rounded-0 btn-outline-danger">Danger</button>
+            <button class="btn rippler rippler-default rounded-0 btn-outline-black">Black</button>
 
-  <h2 class="Test-describe"><code>b</code>, <code>strong</code></h2>
-  <h3 class="Test-it">should have bolder font-weight</h3>
-  <div class="Test-run">
-    <b>b</b>
-    <strong>strong</strong>
-  </div>
+        </div>
 
-  <h2 class="Test-describe"><code>dfn</code></h2>
-  <h3 class="Test-it">should have italic font-style</h3>
-  <div class="Test-run">
-    <dfn>dfn</dfn>
-  </div>
 
-  <h2 class="Test-describe"><code>h1</code></h2>
-  <h3 class="Test-it">should not change size within an <code>article</code></h3>
-  <div class="Test-run">
-    <h1>Heading (control)</h1>
-    <article>
-      <h1>Heading (in article)</h1>
-    </article>
-  </div>
-  <h3 class="Test-it">should not change size within a <code>section</code></h3>
-  <div class="Test-run">
-    <h1>Heading (control)</h1>
-    <section>
-      <h1>Heading (in section)</h1>
-    </section>
-  </div>
+        <div class="col-sm-12 mt-30">
 
-  <h2 class="Test-describe"><code>mark</code></h2>
-  <h3 class="Test-it">should have a yellow background</h3>
-  <div class="Test-run">
-    <mark>mark</mark>
-  </div>
+            <h2 class="section-heading mb-20  h1 mt-0">Rounded Buttons</h2>
 
-  <h2 class="Test-describe"><code>small</code></h2>
-  <h3 class="Test-it">should render equally small in all browsers</h3>
-  <div class="Test-run">
-    control. <small>small.</small>
-  </div>
+            <button class="btn rippler rippler-inverse rounded btn-primary">Primary</button>
+            <button class="btn rippler rippler-inverse rounded btn-default">Default</button>
+            <button class="btn rippler rippler-inverse rounded btn-secondary">Secondary</button>
+            <button class="btn rippler rippler-inverse rounded btn-success">Success</button>
+            <button class="btn rippler rippler-inverse rounded btn-info">Info</button>
+            <button class="btn rippler rippler-inverse rounded btn-warning">Warning</button>
+            <button class="btn rippler rippler-inverse rounded btn-danger">Danger</button>
+            <button class="btn rippler rippler-inverse rounded btn-black">Black</button>
 
-  <h2 class="Test-describe"><code>sub</code> and <code>sup</code></h2>
-  <h3 class="Test-it">should not affect a line's visual line-height</h3>
-  <div class="Test-run Test-run--highlightEl">
-    <p>control.</p>
-    <p>control. <sub>sub.</sub></p>
-    <p>control. <sup>sup.</sup></p>
-  </div>
+        </div>
 
-  <h2 class="Test-describe"><code>img</code></h2>
-  <h3 class="Test-it">should not have a border when wrapped in an anchor</h3>
-  <div class="Test-run">
-    <a href="#non">
-      <!-- scaled-up 1px image -->
-      <img style="background-color:#ADD8E6" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" width="100" height="100">
-    </a>
-  </div>
 
-  <h2 class="Test-describe"><code>svg</code></h2>
-  <h3 class="Test-it">should not overflow</h3>
-  <div class="Test-run Test-run--highlightEl">
-    <svg width="100px" height="100px">
-      <circle cx="100" cy="100" r="100" fill="#ADD8E6" />
-    </svg>
-  </div>
+        <div class="col-sm-12 mt-30">
 
-  <h2 class="Test-describe"><code>code</code>, <code>kbd</code>, <code>pre</code>, <code>samp</code></h2>
-  <h3 class="Test-it">should render text at the same absolute size as normal text</h3>
-  <div class="Test-run">
-    <span>span: abcdefghijklmnopqrstuvwxyz.</span><br>
-    <code>code: abcdefghijklmnopqrstuvwxyz.</code><br>
-    <kbd>kbd: abcdefghijklmnopqrstuvwxyz.</kbd><br>
-    <samp>samp: abcdefghijklmnopqrstuvwxyz.</samp>
-    <pre>pre: abcdefghijklmnopqrstuvwxyz.</pre>
-  </div>
+            <h2 class="section-heading mb-20  h1 mt-0">Rounded Buttons with outline</h2>
 
-  <h2 class="Test-describe"><code>figure</code></h2>
-  <h3 class="Test-it">should have margins</h3>
-  <div class="Test-run" style="outline:1px solid #ADD8E6; overflow:hidden;">
-    <figure>
-      <img style="background-color:#ADD8E6" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" width="400" height="200">
-    </figure>
-  </div>
+            <button class="btn rippler rippler-default rounded btn-outline-primary">Primary</button>
+            <button class="btn rippler rippler-default rounded btn-outline-default">Default</button>
+            <button class="btn rippler rippler-default rounded btn-outline-secondary">Secondary</button>
+            <button class="btn rippler rippler-default rounded btn-outline-success">Success</button>
+            <button class="btn rippler rippler-default rounded btn-outline-info">Info</button>
+            <button class="btn rippler rippler-default rounded btn-outline-warning">Warning</button>
+            <button class="btn rippler rippler-default rounded btn-outline-danger">Danger</button>
+            <button class="btn rippler rippler-default rounded btn-outline-black">Black</button>
 
-  <h2 class="Test-describe"><code>hr</code></h2>
-  <h3 class="Test-it">should have a <code>content-box</code> box model</h3>
-  <div class="Test-run" style="">
-    <hr style="height:2px; border:solid #ADD8E6; border-width:2px 0;">
-  </div>
+        </div>
 
-  <h2 class="Test-describe"><code>button</code>, <code>input</code>, <code>optgroup</code>, <code>select</code>, <code>textarea</code></h2>
-  <h3 class="Test-it">should inherit <code>font-size</code> from ancestor</h3>
-  <div class="Test-run" style="font-size: 20px;">
-    <button>button</button><br>
-    <input value="input"><br>
-    <select style="border:1px solid #999;">
-      <optgroup label="optgroup">
-        <option>option</option>
-      </optgroup>
-      <option>option</option>
-    </select><br>
-    <textarea>textarea</textarea>
-  </div>
-  <h3 class="Test-it">should not have margins</h3>
-  <div class="Test-run" id="form-collection-margins">
-    <style>
-      #form-collection-margins {
-        outline: 1px solid #ADD8E6;
-        overflow: hidden;
-      }
-      #form-collection-margins button,
-      #form-collection-margins input,
-      #form-collection-margins select,
-      #form-collection-margins textarea {
-        display: block;
-      }
-    </style>
-    <button>button</button>
-    <input value="input">
-    <select style="border:1px solid #999;">
-      <optgroup label="optgroup">
-        <option>option</option>
-      </optgroup>
-      <option>option</option>
-    </select>
-    <textarea>textarea</textarea>
-  </div>
 
-  <h2 class="Test-describe"><code>button</code></h2>
-  <h3 class="Test-it">should have visible overflow</h3>
-  <div class="Test-run" id="button-overflow">
-    <style>
-      #button-overflow button:after {
-        content: "";
-        background: #ADD8E6;
-        display: inline-block;
-        height: 10px;
-        position:relative;
-        right: -20px;
-        width: 10px;
-      }
-    </style>
-    <button>abcdefghijklmnopqrstuvwxyz</button>
-  </div>
+        <div class="col-sm-12 mt-30">
 
-  <h2 class="Test-describe"><code>button</code>, <code>select</code></h2>
-  <h3 class="Test-it">should not inherit <code>text-transform</code></h3>
-  <div class="Test-run" style="text-transform:uppercase">
-    <button>button</button>
-    <select><option>option</option></select>
-  </div>
+            <h2 class="section-heading mb-20  h1 mt-0">More Rounded Buttons</h2>
 
-  <h2 class="Test-describe"><code>button</code> and button-style <code>input</code></h2>
-  <h3 class="Test-it">should be styleable</h3>
-  <div class="Test-run" id="button-like-style">
-    <style>
-      #button-like-style button,
-      #button-like-style input {
-        background: #ADD8E6;
-        border: 2px solid black;
-        border-radius: 2px;
-        padding: 5px;
-      }
-    </style>
-    <p><button>button</button></p>
-    <p><input type="image" src="//placehold.it/90x24" alt="input (image)"></p>
-    <p><input type="button" value="input (button)"></p>
-    <p><input type="file" value="input (file)"></p>
-    <p><input type="reset" value="input (reset)"></p>
-    <p><input type="submit" value="input (submit)"></p>
-  </div>
+            <button class="btn rippler rippler-inverse rounded-20 btn-primary">Primary</button>
+            <button class="btn rippler rippler-inverse rounded-20 btn-default">Default</button>
+            <button class="btn rippler rippler-inverse rounded-20 btn-secondary">Secondary</button>
+            <button class="btn rippler rippler-inverse rounded-20 btn-success">Success</button>
+            <button class="btn rippler rippler-inverse rounded-20 btn-info">Info</button>
+            <button class="btn rippler rippler-inverse rounded-20 btn-warning">Warning</button>
+            <button class="btn rippler rippler-inverse rounded-20 btn-danger">Danger</button>
+            <button class="btn rippler rippler-inverse rounded-20 btn-black">Black</button>
 
-  <h2 class="Test-describe">disabled <code>button</code> and <code>input</code></h2>
-  <h3 class="Test-it">should have <code>default</code> cursor style</h3>
-  <div class="Test-run">
-    <p><button disabled>button</button></p>
-    <p><input disabled type="button" value="input (button)"></p>
-    <p><input disabled type="reset" value="input (reset)"></p>
-    <p><input disabled type="submit" value="input (submit)"></p>
-  </div>
+        </div>
 
-  <h2 class="Test-describe"><code>button</code>, <code>input</code></h2>
-  <h3 class="Test-it">should not have extra inner padding in Firefox</h3>
-  <div class="Test-run" id="button-input-padding">
-    <style>
-      #button-input-padding button,
-      #button-input-padding input {
-        border: 0;
-        padding: 0;
-        outline: 1px solid #ADD8E6;
-      }
-    </style>
-    <p><button>button</button></p>
-    <p><input type="button" value="input (button)"></p>
-    <p><input type="reset" value="input (reset)"></p>
-    <p><input type="submit" value="input (submit)"></p>
-  </div>
 
-  <h2 class="Test-describe"><code>fieldset</code></h2>
-  <h3 class="Test-it">should have consistent border, padding, and margin</h3>
-  <div class="Test-run">
-    <fieldset>
-      <div style="width:100%; height:100px; background:#ADD8E6;"></div>
-    </fieldset>
-  </div>
+        <div class="col-sm-12 mt-30">
 
-  <h2 class="Test-describe"><code>legend</code></h2>
-  <h3 class="Test-it">should inherit color</h3>
-  <div class="Test-run" style="color:#ADD8E6;">
-    <fieldset>
-      <legend>legend</legend>
-    </fieldset>
-  </div>
-  <h3 class="Test-it">should not have padding</h3>
-  <div class="Test-run">
-    <fieldset>
-      <legend>legend</legend>
-    </fieldset>
-  </div>
-  <h3 class="Test-it">should wrap text</h3>
-  <div class="Test-run">
-    <fieldset>
-      <legend>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et me.</legend>
-    </fieldset>
-  </div>
+            <h2 class="section-heading mb-20  h1 mt-0">More Rounded Buttons with outline</h2>
 
-  <h2 class="Test-describe"><code>textarea</code></h2>
-  <h3 class="Test-it">should not have a scrollbar unless overflowing</h3>
-  <div class="Test-run">
-    <textarea>textarea</textarea>
-  </div>
+            <button class="btn rippler rippler-default rounded-20 btn-outline-primary">Primary</button>
+            <button class="btn rippler rippler-default rounded-20 btn-outline-default">Default</button>
+            <button class="btn rippler rippler-default rounded-20 btn-outline-secondary">Secondary</button>
+            <button class="btn rippler rippler-default rounded-20 btn-outline-success">Success</button>
+            <button class="btn rippler rippler-default rounded-20 btn-outline-info">Info</button>
+            <button class="btn rippler rippler-default rounded-20 btn-outline-warning">Warning</button>
+            <button class="btn rippler rippler-default rounded-20 btn-outline-danger">Danger</button>
+            <button class="btn rippler rippler-default rounded-20 btn-outline-black">Black</button>
 
-  <h2 class="Test-describe"><code>[type="checkbox"]</code>, <code>[type="radio"]</code></h2>
-  <h3 class="Test-it">should have a <code>border-box</code> box model</h3>
-  <div class="Test-run Test-run--highlightEl" id="radio-box-model">
-    <style>
-      #radio-box-model {
-        width: 200px;
-        border: 1px solid red;
-      }
-      #radio-box-model input {
-        width: 100%;
-        border: 5px solid #ADD8E6;
-        display: block;
-        position: relative;
-      }
-    </style>
-    <input type="checkbox">
-    <input type="radio" name="rad">
-  </div>
-  <h3 class="Test-it">should not have padding</h3>
-  <div class="Test-run Test-run--highlightEl">
-    <input type="checkbox">
-    <input type="radio" name="rad">
-  </div>
+        </div>
 
-  <h2 class="Test-describe"><code>[type="number"]</code></h2>
-  <h3 class="Test-it">should display a default cursor for the decrement button's click target in Chrome</h3>
-  <div class="Test-run">
-    <input style="height:50px; font-size:15px;" type="number" id="in" min="0" max="10" value="5">
-  </div>
 
-  <h2 class="Test-describe"><code>[type="search"]</code></h2>
-  <h3 class="Test-it">should be styleable</h3>
-  <div class="Test-run">
-    <input type="search" style="border:1px solid #ADD8E6; padding:10px; width:200px;">
-  </div>
-  <h3 class="Test-it">should reference inherited color</h3>
-  <div class="Test-run">
-    <input type="text" placeholder="Text goes here" style="background-color: black; color: orange;">
-  </div>
+
+        <div class="col-sm-12 mt-30">
+
+          <h2 class="section-heading mb-20  h1 mt-0">Buttons with shadow</h2>
+
+          <button class="btn rippler rippler-default btn-shadow rounded-0 btn-primary">Primary</button>
+          <button class="btn rippler rippler-default btn-shadow rounded-0 btn-default">Default</button>
+          <button class="btn rippler rippler-default btn-shadow rounded-0 btn-secondary">Secondary</button>
+          <button class="btn rippler rippler-default btn-shadow rounded-0 btn-success">Success</button>
+          <button class="btn rippler rippler-default btn-shadow rounded-0 btn-info">Info</button>
+          <button class="btn rippler rippler-default btn-shadow rounded-0 btn-warning">Warning</button>
+          <button class="btn rippler rippler-default btn-shadow rounded-0 btn-danger">Danger</button>
+          <button class="btn rippler rippler-default btn-shadow rounded-0 btn-black">Black</button>
+        </div>
+
+
+        <div class="col-sm-12 mt-30">
+
+            <h2 class="section-heading mb-20  h1 mt-0">Outline Buttons with shadow</h2>
+
+            <button class="btn rippler rippler-inverse btn-shadow rounded-0 btn-outline-primary">Primary</button>
+            <button class="btn rippler rippler-inverse btn-shadow rounded-0 btn-outline-default">Default</button>
+            <button class="btn rippler rippler-inverse btn-shadow rounded-0 btn-outline-secondary">Secondary</button>
+            <button class="btn rippler rippler-inverse btn-shadow rounded-0 btn-outline-success">Success</button>
+            <button class="btn rippler rippler-inverse btn-shadow rounded-0 btn-outline-info">Info</button>
+            <button class="btn rippler rippler-inverse btn-shadow rounded-0 btn-outline-warning">Warning</button>
+            <button class="btn rippler rippler-inverse btn-shadow rounded-0 btn-outline-danger">Danger</button>
+            <button class="btn rippler rippler-inverse btn-shadow rounded-0 btn-outline-black">Black</button>
+
+        </div>
+
+
+
+        <div class="col-sm-12 mt-30">
+
+            <h2 class="section-heading mb-20  h1 mt-0">Buttons with Sizes</h2>
+
+            <button class="btn btn-lg rippler rippler-default btn-shadow rounded-0 btn-primary">Large Button</button>
+            <button class="btn btn-lg rippler rippler-inverse btn-shadow rounded-0 btn-outline-primary">Large Button</button>
+            <button class="btn btn-sm rippler rippler-default btn-shadow rounded-0 btn-default">Small Button</button>
+            <button class="btn btn-sm rippler rippler-inverse btn-shadow rounded-0 btn-outline-default">Small Button</button>
+
+        </div>
+
+
+
+  
+        <div class="col-sm-12 mt-30">
+            <h2 class="section-heading h1 mt-30">Social Buttons</h2>
+            <h3 class="pb-20 mb-20">Full name social buttons</h3>
+
+            <button type="button" class="btn rippler rippler-default btn-shadow rounded-0 btn-fb"><i class="fa fa-facebook left"></i> Facebook</button>
+            <button type="button" class="btn rippler rippler-default btn-shadow rounded-0 btn-tw"><i class="fa fa-twitter left"></i> Twitter</button>
+            <button type="button" class="btn rippler rippler-default btn-shadow rounded-0 btn-gplus"><i class="fa fa-google-plus left"></i> Google +</button>
+            <button type="button" class="btn rippler rippler-default btn-shadow rounded-0 btn-li"><i class="fa fa-linkedin left"></i> Linkedin</button>
+            <button type="button" class="btn rippler rippler-default btn-shadow rounded-0 btn-ins"><i class="fa fa-instagram left"></i> Instagram</button>
+            <button type="button" class="btn rippler rippler-default btn-shadow rounded-0 btn-pin"><i class="fa fa-pinterest left"></i> Pinterest</button>
+            <button type="button" class="btn rippler rippler-default btn-shadow rounded-0 btn-yt"><i class="fa fa-youtube left"></i> Youtube</button>
+            <button type="button" class="btn rippler rippler-default btn-shadow rounded-0 btn-so"><i class="fa fa-stack-overflow left"></i> Stack Overflow</button>
+            <button type="button" class="btn rippler rippler-default btn-shadow rounded-0 btn-slack"><i class="fa fa-slack left"></i> Slack</button>
+            <button type="button" class="btn rippler rippler-default btn-shadow rounded-0 btn-git"><i class="fa fa-github left"></i> Github</button>
+            <button type="button" class="btn rippler rippler-default btn-shadow rounded-0 btn-comm"><i class="fa fa-comments left"></i> Comments</button>
+            <button type="button" class="btn rippler rippler-default btn-shadow rounded-0 btn-email"><i class="fa fa-envelope left"></i> Email</button>
+
+        </div>
+
+        <div class="col-sm-12 mt-10">
+            <h3 class="pb-20 mb-20">Social buttons without name</h3>
+            <button type="button" class="btn rippler rippler-default btn-shadow rounded-0 btn-fb"><i class="fa fa-facebook"></i></button>
+            <button type="button" class="btn rippler rippler-default btn-shadow rounded-0 btn-tw"><i class="fa fa-twitter"></i></button>
+            <button type="button" class="btn rippler rippler-default btn-shadow rounded-0 btn-gplus"><i class="fa fa-google-plus"></i></button>
+            <button type="button" class="btn rippler rippler-default btn-shadow rounded-0 btn-li"><i class="fa fa-linkedin"></i></button>
+            <button type="button" class="btn rippler rippler-default btn-shadow rounded-0 btn-ins"><i class="fa fa-instagram"></i></button>
+            <button type="button" class="btn rippler rippler-default btn-shadow rounded-0 btn-pin"><i class="fa fa-pinterest"></i></button>
+            <button type="button" class="btn rippler rippler-default btn-shadow rounded-0 btn-yt"><i class="fa fa-youtube"></i></button>
+            <button type="button" class="btn rippler rippler-default btn-shadow rounded-0 btn-so"><i class="fa fa-stack-overflow"></i></button>
+            <button type="button" class="btn rippler rippler-default btn-shadow rounded-0 btn-slack"><i class="fa fa-slack"></i></button>
+            <button type="button" class="btn rippler rippler-default btn-shadow rounded-0 btn-git"><i class="fa fa-github"></i></button>
+            <button type="button" class="btn rippler rippler-default btn-shadow rounded-0 btn-comm"><i class="fa fa-comments"></i></button>
+            <button type="button" class="btn rippler rippler-default btn-shadow rounded-0 btn-email"><i class="fa fa-envelope"></i></button>
+        </div>    
+
+        <div class="col-sm-12 mt-10 mb-30">
+            <h3 class="pb-20 mb-20">Circle social buttons</h3>
+            <a type="button" class="btn-floating btn-shadow btn-fb rippler rippler-default"><i class="fa fa-facebook"></i></a>
+            <a type="button" class="btn-floating btn-shadow btn-tw rippler rippler-default"><i class="fa fa-twitter"></i></a>
+            <a type="button" class="btn-floating btn-shadow btn-gplus rippler rippler-default"><i class="fa fa-google-plus"></i></a>
+            <a type="button" class="btn-floating btn-shadow btn-li rippler rippler-default"><i class="fa fa-linkedin"></i></a>
+            <a type="button" class="btn-floating btn-shadow btn-ins rippler rippler-default"><i class="fa fa-instagram"></i></a>
+            <a type="button" class="btn-floating btn-shadow btn-pin rippler rippler-default"><i class="fa fa-pinterest"></i></a>
+            <a type="button" class="btn-floating btn-shadow btn-yt rippler rippler-default"><i class="fa fa-youtube"></i></a>
+            <a type="button" class="btn-floating btn-shadow btn-so rippler rippler-default"><i class="fa fa-stack-overflow"></i></a>
+            <a type="button" class="btn-floating btn-shadow btn-slack rippler rippler-default"><i class="fa fa-slack"></i></a>
+            <a type="button" class="btn-floating btn-shadow btn-git rippler rippler-default"><i class="fa fa-github"></i></a>
+            <a type="button" class="btn-floating btn-shadow btn-comm rippler rippler-default"><i class="fa fa-comments"></i></a>
+            <a type="button" class="btn-floating btn-shadow btn-email rippler rippler-default"><i class="fa fa-envelope"></i></a>
+        </div>
+
+
+        <div class="col-sm-12 mt-10 mb-30">
+            <h3 class="pb-20 mb-20">Full name social counters</h3>
+            <button type="button" class="btn btn-fb rippler rippler-default btn-shadow"><i class="fa fa-facebook left"></i><span>Facebook</span></button>
+            <span class="counter">22</span>
+            <button type="button" class="btn btn-tw rippler rippler-default btn-shadow"><i class="fa fa-twitter left"></i><span>Twitter</span></button>
+            <span class="counter">22</span>
+            <button type="button" class="btn btn-gplus rippler rippler-default btn-shadow"><i class="fa fa-google-plus left"></i><span>Google+</span></button>
+            <span class="counter">22</span>
+            <button type="button" class="btn btn-li rippler rippler-default btn-shadow"><i class="fa fa-linkedin left"></i><span>Linkedin</span></button>
+            <span class="counter">22</span>
+            <button type="button" class="btn btn-ins rippler rippler-default btn-shadow"><i class="fa fa-instagram left"></i><span>Instagram</span></button>
+            <span class="counter">22</span>
+            <button type="button" class="btn btn-pin rippler rippler-default btn-shadow"><i class="fa fa-pinterest left"></i><span>Pinterest</span></button>
+            <span class="counter">22</span>
+            <button type="button" class="btn btn-yt rippler rippler-default btn-shadow"><i class="fa fa-youtube left"></i><span>Youtube</span></button>
+            <span class="counter">22</span>
+            <button type="button" class="btn btn-so rippler rippler-default btn-shadow"><i class="fa fa-stack-overflow left"></i><span>Stack Overflow</span></button>
+            <span class="counter">22</span>
+            <button type="button" class="btn btn-slack rippler rippler-default btn-shadow"><i class="fa fa-slack left"></i><span>Slack</span></button>
+            <span class="counter">22</span>
+            <button type="button" class="btn btn-git rippler rippler-default btn-shadow"><i class="fa fa-github left"></i><span>Github</span></button>
+            <span class="counter">22</span>
+            <button type="button" class="btn btn-comm rippler rippler-default btn-shadow"><i class="fa fa-comments left"></i><span>Comments</span></button>
+            <span class="counter">22</span>
+            <button type="button" class="btn btn-email rippler rippler-default btn-shadow"><i class="fa fa-envelope left"></i><span>Emails</span></button>
+            <span class="counter">22</span>
+        </div>
+
+        
+        <div class="col-sm-12 mt-10 mb-30">
+            <h3 class="pb-20 mb-20">Simple social counters</h3>
+
+            <button type="button" class="btn btn-fb rippler rippler-default btn-shadow"><i class="fa fa-facebook"></i></button>
+            <span class="counter">22</span>
+
+            <button type="button" class="btn btn-tw rippler rippler-default btn-shadow"><i class="fa fa-twitter"></i></button>
+            <span class="counter">22</span>
+
+            <button type="button" class="btn btn-gplus rippler rippler-default btn-shadow"><i class="fa fa-google-plus"></i></button>
+            <span class="counter">22</span>
+
+            <button type="button" class="btn btn-li rippler rippler-default btn-shadow"><i class="fa fa-linkedin"></i></button>
+            <span class="counter">22</span>
+
+            <button type="button" class="btn btn-ins rippler rippler-default btn-shadow"><i class="fa fa-instagram"></i></button>
+            <span class="counter">22</span>
+
+            <button type="button" class="btn btn-pin rippler rippler-default btn-shadow"><i class="fa fa-pinterest"></i></button>
+            <span class="counter">22</span>
+
+            <button type="button" class="btn btn-yt rippler rippler-default btn-shadow"><i class="fa fa-youtube"></i></button>
+            <span class="counter">22</span>
+
+            <button type="button" class="btn btn-so rippler rippler-default btn-shadow"><i class="fa fa-stack-overflow"></i></button>
+            <span class="counter">22</span>
+
+            <button type="button" class="btn btn-slack rippler rippler-default btn-shadow"><i class="fa fa-slack"></i></button>
+            <span class="counter">22</span>
+
+            <button type="button" class="btn btn-git rippler rippler-default btn-shadow"><i class="fa fa-github"></i></button>
+            <span class="counter">22</span>
+
+            <button type="button" class="btn btn-comm rippler rippler-default btn-shadow"><i class="fa fa-comments"></i></button>
+            <span class="counter">22</span>
+
+            <button type="button" class="btn btn-email rippler rippler-default btn-shadow"><i class="fa fa-envelope"></i></button>
+            <span class="counter">22</span>
+
+        </div>
+        <div class="col-sm-12 mt-10 mb-30">
+            <h3 class="pb-20 mb-20">Social icons only</h3>
+            <a class="fa-lg p-5 m-5 fb-icon"><i class="fa fa-facebook"> </i></a>
+            <a class="fa-lg p-5 m-5 tw-icon"><i class="fa fa-twitter"> </i></a>
+            <a class="fa-lg p-5 m-5 gplus-icon"><i class="fa fa-google-plus"> </i></a>
+            <a class="fa-lg p-5 m-5 li-icon"><i class="fa fa-linkedin"> </i></a>
+            <a class="fa-lg p-5 m-5 ins-icon"><i class="fa fa-instagram"> </i></a>
+            <a class="fa-lg p-5 m-5 pin-icon"><i class="fa fa-pinterest"> </i></a>
+            <a class="fa-lg p-5 m-5 yt-icon"><i class="fa fa-youtube"> </i></a>
+            <a class="fa-lg p-5 m-5 so-icon"><i class="fa fa-stack-overflow"> </i></a>
+            <a class="fa-lg p-5 m-5 slack-icon"><i class="fa fa-slack"> </i></a>
+            <a class="fa-lg p-5 m-5 git-icon"><i class="fa fa-github"> </i></a>
+            <a class="fa-lg p-5 m-5 comm-icon"><i class="fa fa-comments"> </i></a>
+            <a class="fa-lg p-5 m-5 email-icon"><i class="fa fa-envelope-o"> </i></a>
+          </div>
+
+
+          <div class="col-sm-12 mt-30 mb-45">
+                <h2 class="section-heading h1 mt-30">Badges</h2>
+                <h1>Example heading <span class="badge badge-success">New</span></h1>
+                <h2>Example heading <span class="badge badge-danger">New</span></h2>
+                <h3>Example heading <span class="badge badge-primary">New</span></h3>
+                <h4>Example heading <span class="badge badge-warning">New</span></h4>
+                <h5>Example heading <span class="badge badge-info">New</span></h5>
+                <h6>Example heading <span class="badge badge-dark">New</span></h6>
+          </div>
+          <div class="col-sm-12 mt-30 mb-45">      
+
+                <h2 class="section-heading h1 mt-30">Badges with background color</h2>
+
+                <button type="button" class="btn btn-success">Notifications <span class="badge badge-light">4</span></button>
+
+                <button type="button" class="btn btn-default">Profile <span class="badge badge-light">9</span><span class="sr-only">unread messages</span></button>
+
+          </div>
+          <div class="col-sm-12 mt-30 mb-45">      
+
+                <h2 class="section-heading h1 mt-30">Contextual variations Badges</h2>
+
+                <span class="badge badge-primary">Primary</span>
+                <span class="badge badge-secondary">Secondary</span>
+                <span class="badge badge-success">Success</span>
+                <span class="badge badge-danger">Danger</span>
+                <span class="badge badge-warning">Warning</span>
+                <span class="badge badge-info">Info</span>
+                <span class="badge badge-light">Light</span>
+                <span class="badge badge-dark">Dark</span>
+          </div>
+          <div class="col-sm-12 mt-30 mb-45">
+
+               <h2 class="section-heading h1 mt-30">Pill badges</h2>
+
+                <span class="badge badge-pill badge-primary">Primary</span>
+                <span class="badge badge-pill badge-secondary">Secondary</span>
+                <span class="badge badge-pill badge-success">Success</span>
+                <span class="badge badge-pill badge-danger">Danger</span>
+                <span class="badge badge-pill badge-warning">Warning</span>
+                <span class="badge badge-pill badge-info">Info</span>
+                <span class="badge badge-pill badge-light">Light</span>
+                <span class="badge badge-pill badge-dark">Dark</span>
+
+          </div>
+          <div class="col-sm-12 mt-30 mb-45">
+
+                <h2 class="section-heading h1 mt-30">Links Badges</h2>
+
+                <a href="#" class="badge badge-primary">Primary</a>
+                <a href="#" class="badge badge-secondary">Secondary</a>
+                <a href="#" class="badge badge-success">Success</a>
+                <a href="#" class="badge badge-danger">Danger</a>
+                <a href="#" class="badge badge-warning">Warning</a>
+                <a href="#" class="badge badge-info">Info</a>
+                <a href="#" class="badge badge-light">Light</a>
+                <a href="#" class="badge badge-dark">Dark</a>
+            </div>
+
+        </div>
 
 
 
 
 
-<br /><br /><br />
 
 
-   <div class="row">
 
-                            <a href="#0" class="btn rounded-0 btn-primary">Primary</a>
-                            <a href="#0" class="btn rounded-0 btn-default">Default</a>
-                            <a href="#0" class="btn rounded-0 btn-secondary">Secondary</a>
-                            <a href="#0" class="btn rounded-0 btn-sucess">Sucess</a>
-                            <a href="#0" class="btn rounded-0 btn-info">Info</a>
-                            <a href="#0" class="btn rounded-0 btn-warning">Warning</a>
-                            <a href="#0" class="btn rounded-0 btn-danger">Danger</a>
-                            <a href="#0" class="btn rounded-0 btn-black">Black</a>
-            
-                             <br /><br />
-                             <br /><br />
-                             <br /><br />
 
-                             <a href="#0" class="btn rounded-0 btn-outline-primary">Primary</a>
-                            <a href="#0" class="btn rounded-0 btn-outline-default">Default</a>
-                            <a href="#0" class="btn rounded-0 btn-outline-secondary">Secondary</a>
-                            <a href="#0" class="btn rounded-0 btn-outline-sucess">Sucess</a>
-                            <a href="#0" class="btn rounded-0 btn-outline-info">Info</a>
-                            <a href="#0" class="btn rounded-0 btn-outline-warning">Warning</a>
-                            <a href="#0" class="btn rounded-0 btn-outline-danger">Danger</a>
-                            <a href="#0" class="btn rounded-0 btn-outline-black">Black</a>
 
-                         </div><br /><br />
 
-                         <div class="row">
-                            <div class="col-sm-6">
-                                <p class="text-primary">.text-primary</p>
-                                <p class="text-default">.text-default</p>
-                                <p class="text-secondary">.text-secondary</p>
-                                <p class="text-success">.text-success</p>
-                                <p class="text-info">.text-info</p>
-                                <p class="text-warning">.text-warning</p>
-                                <p class="text-danger">.text-danger</p>
-                                <p class="text-light bg-dark">.text-light</p>
-                                <p class="text-dark">.text-dark</p>
-                                <p class="text-muted">.text-muted</p>
-                                <p class="text-white bg-dark">.text-white</p>
-                            </div>
-                            <div class="col-sm-6">
-                                <p><a href="#" class="text-primary">Primary link</a></p>
-                                <p><a href="#" class="text-default">Default link</a></p>
-                                <p><a href="#" class="text-secondary">Secondary link</a></p>
-                                <p><a href="#" class="text-success">Success link</a></p>
-                                <p><a href="#" class="text-info">Info link</a></p>
-                                <p><a href="#" class="text-warning">Warning link</a></p>
-                                <p><a href="#" class="text-danger">Danger link</a></p>
-                                <p><a href="#" class="text-light bg-dark">Light link</a></p>
-                                <p><a href="#" class="text-dark">Dark link</a></p>
-                                <p><a href="#" class="text-muted">Muted link</a></p>
-                                <p><a href="#" class="text-white bg-dark">White link</a></p>
-                            </div>
 
-                            <div class="col-sm-6">
-                                <div><a href="0#" class="d-block p-3 mb-2 bg-primary text-white">.bg-primary</a></div>
-                                <div><a href="0#" class="d-block p-3 mb-2 bg-secondary text-white">.bg-secondary</a></div>
-                                <div><a href="0#" class="d-block p-3 mb-2 bg-success text-white">.bg-success</a></div>
-                                <div><a href="0#" class="d-block p-3 mb-2 bg-danger text-white">.bg-danger</a></div>
-                                <div><a href="0#" class="d-block p-3 mb-2 bg-warning text-white">.bg-warning</a></div>
-                                <div><a href="0#" class="d-block p-3 mb-2 bg-info text-white">.bg-info</a></div>
-                                <div><a href="0#" class="d-block p-3 mb-2 bg-light text-dark">.bg-light</a></div>
-                                <div><a href="0#" class="d-block p-3 mb-2 bg-dark text-white">.bg-dark</a></div>
-                                <div><a href="0#" class="d-block p-3 mb-2 bg-white text-dark">.bg-white</a></div>
-                                <br /><br /><br />
-                                <h1>Example heading <span class="badge badge-secondary">New</span></h1>
-                                <h2>Example heading <span class="badge badge-secondary">New</span></h2>
-                                <h3>Example heading <span class="badge badge-secondary">New</span></h3>
-                                <h4>Example heading <span class="badge badge-secondary">New</span></h4>
-                                <h5>Example heading <span class="badge badge-secondary">New</span></h5>
-                                <h6>Example heading <span class="badge badge-secondary">New</span></h6>
 
+
+
+
+
+
+        <div class="col-sm-12">
                                 <br /><br />
-                                <button type="button" class="btn btn-primary">
-                                    Notifications <span class="badge badge-light">4</span>
-                                </button>
-                                <br /><br />
-                                <button type="button" class="btn btn-primary">
-                                    Profile <span class="badge badge-light">9</span>
-                                    <span class="sr-only">unread messages</span>
-                                </button>
-                                <br /><br />
-                                <h2>Contextual variations</h2>
-                                <span class="badge badge-primary">Primary</span>
-                                <span class="badge badge-secondary">Secondary</span>
-                                <span class="badge badge-success">Success</span>
-                                <span class="badge badge-danger">Danger</span>
-                                <span class="badge badge-warning">Warning</span>
-                                <span class="badge badge-info">Info</span>
-                                <span class="badge badge-light">Light</span>
-                                <span class="badge badge-dark">Dark</span>
-                                <br />
-                                <br />
-                                <h2>Pill badges</h2>
-                                <span class="badge badge-pill badge-primary">Primary</span>
-                                <span class="badge badge-pill badge-secondary">Secondary</span>
-                                <span class="badge badge-pill badge-success">Success</span>
-                                <span class="badge badge-pill badge-danger">Danger</span>
-                                <span class="badge badge-pill badge-warning">Warning</span>
-                                <span class="badge badge-pill badge-info">Info</span>
-                                <span class="badge badge-pill badge-light">Light</span>
-                                <span class="badge badge-pill badge-dark">Dark</span>
-                                <br /><br />
-                                <h2>Links</h2>
-                                <a href="#" class="badge badge-primary">Primary</a>
-                                <a href="#" class="badge badge-secondary">Secondary</a>
-                                <a href="#" class="badge badge-success">Success</a>
-                                <a href="#" class="badge badge-danger">Danger</a>
-                                <a href="#" class="badge badge-warning">Warning</a>
-                                <a href="#" class="badge badge-info">Info</a>
-                                <a href="#" class="badge badge-light">Light</a>
-                                <a href="#" class="badge badge-dark">Dark</a>
-                            </div>
-                            <div class="col-sm-6">
-                                <div class="alert alert-primary" role="alert">
-                                This is a primary alert—check it out!
-                                    <hr>
-                                    <a href="0#" class="alert-link">click here</a>
-                                </div>
-                                <div class="alert alert-secondary" role="alert">
-                                    This is a secondary alert—check it out!
-                                    <hr>
-                                    <a  href="0#" class="alert-link">click here</a>
-                                </div>
-                                <div class="alert alert-success" role="alert">
-                                    This is a success alert—check it out!
-                                    <hr>
-                                    <a href="0#" class="alert-link">click here</a>
-                                </div>
-                                <div class="alert alert-danger" role="alert">
-                                    This is a danger alert—check it out!
-                                    <hr>
-                                    <a href="0#" class="alert-link">click here</a>
-                                </div>
-                                <div class="alert alert-warning" role="alert">
-                                    This is a warning alert—check it out!
-                                    <hr>
-                                    <a href="0#" class="alert-link">click here</a>
-                                </div>
-                                <div class="alert alert-info" role="alert">
-                                    This is a info alert—check it out!
-                                    <hr>
-                                    <a href="0#" class="alert-link">click here</a>
-                                </div>
-                                <div class="alert alert-light" role="alert">
-                                    This is a light alert—check it out!
-                                    <hr>
-                                    <a href="0#" class="alert-link">click here</a>
-                                </div>
-                                <div class="alert alert-dark" role="alert">
-                                    This is a dark alert—check it out!
-                                    <hr>
-                                    <a href="0#" class="alert-link">click here</a>
-                                </div>
-                            </div>
-                            <div class="col-sm-12">
-                                <br /><br /><br /><br />
-                                <h2>Breadcrumbs</h2>
-                                <nav role="breadcrumb" class="ws-theme-addons-breadcrumb">
-                                    <ol class="ws-theme-breadcrumb">
-                                        <li><a href="#0">Home</a></li>
-                                        <li><a href="#0">Gallery</a></li>
-                                        <li><a href="#0">Web</a></li>
-                                        <li class="current"><em>Project</em></li>
-                                    </ol>
-                                </nav>
-                                <nav role="breadcrumb" class="ws-theme-addons-breadcrumb">
-                                    <ol class="ws-theme-breadcrumb custom-separator">
-                                        <li><a href="#0">Home</a></li>
-                                        <li><a href="#0">Gallery</a></li>
-                                        <li><a href="#0">Web</a></li>
-                                        <li class="current"><em>Project</em></li>
-                                    </ol>
-                                </nav>
-                                <nav role="breadcrumb" class="ws-theme-addons-breadcrumb">
-                                    <ol class="ws-theme-breadcrumb custom-separator custom-icons">
-                                        <li><a href="#0"> <i class="fa fa-home" aria-hidden="true"></i> Home</a></li>
-                                        <li class="current"><i class="fa fa-th-large" aria-hidden="true"></i> <em> Trip Listing</em></li>
-                                        <li><a href="#0">Web</a></li>
-                                        <li class="current"><em>Project</em></li>
-                                    </ol>
-                                </nav>
-                                <nav role="breadcrumb" class="ws-theme-addons-breadcrumb">
-                                    <ol class="ws-theme-breadcrumb triangle">
-                                        <li><a href="#0">Home</a></li>
-                                        <li><a href="#0">Gallery</a></li>
-                                        <li><a href="#0">Web</a></li>
-                                        <li class="current"><em>Project</em></li>
-                                    </ol>
-                                </nav>
-                                <nav role="breadcrumb" class="ws-theme-addons-breadcrumb">
-                                    <ol class="ws-theme-breadcrumb triangle custom-icons">
-                                        <li><a href="#0"><i class="fa fa-th-large" aria-hidden="true"></i> Home</a></li>
-                                        <li><a href="#0"><i class="fa fa-th-large" aria-hidden="true"></i> Gallery</a></li>
-                                        <li class="current"><i class="fa fa-th-large" aria-hidden="true"></i> <em>Web</em></li>
-                                        <li><i class="fa fa-th-large" aria-hidden="true"></i> <em>Project</em></li>
-                                    </ol>
-                                </nav>
-                                <nav role="breadcrumb" class="ws-theme-addons-breadcrumb">
-                                    <ol class="ws-theme-multi-steps text-center">
-                                        <li class="visited"><a href="#0">Cart</a></li>
-                                        <li class="visited" ><a href="#0">Billing</a></li>
-                                        <li class="current"><em>Delivery</em></li>
-                                        <li><em>Review</em></li>
-                                    </ol>
-                                </nav>
-                                <nav role="breadcrumb" class="ws-theme-addons-breadcrumb">
-                                    <ol class="ws-theme-multi-steps text-center custom-icons">
-                                        <li class="visited"><a href="#0">Cart</a></li>
-                                        <li class="visited" ><a href="#0">Billing</a></li>
-                                        <li class="current"><em>Delivery</em></li>
-                                        <li><em>Review</em></li>
-                                    </ol>
-                                </nav>
-                                <nav role="breadcrumb" class="ws-theme-addons-breadcrumb">
-                                    <ol class="ws-theme-multi-steps text-top">
-                                        <li class="visited"><a href="#0">Cart</a></li>
-                                        <li class="visited" ><a href="#0">Billing</a></li>
-                                        <li class="current"><em>Delivery</em></li>
-                                        <li><em>Review</em></li>
-                                    </ol>
-                                </nav>
-                                <nav role="breadcrumb" class="ws-theme-addons-breadcrumb">
-                                    <ol class="ws-theme-multi-steps text-bottom count">
-                                        <li class="visited"><a href="#0">Cart</a></li>
-                                        <li class="visited" ><a href="#0">Billing</a></li>
-                                        <li class="current"><em>Delivery</em></li>
-                                        <li><em>Review</em></li>
-                                    </ol>
-                                </nav>
+                                <table>
+                                    <thead>
+                                        <tr>
+                                        <th>Heading</th>
+                                        <th>Example</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                        <td>
+                                            <p><code class="highlighter-rouge">&lt;h1&gt;&lt;/h1&gt;</code></p>
 
+                                        </td>
+                                        <td><span class="h1">h1. Bootstrap heading</span></td>
+                                        </tr>
+                                        <tr>
+                                        <td>
+                                            <p><code class="highlighter-rouge">&lt;h2&gt;&lt;/h2&gt;</code></p>
+
+                                        </td>
+                                        <td><span class="h2">h2. Bootstrap heading</span></td>
+                                        </tr>
+                                        <tr>
+                                        <td>
+                                            <p><code class="highlighter-rouge">&lt;h3&gt;&lt;/h3&gt;</code></p>
+
+                                        </td>
+                                        <td><span class="h3">h3. Bootstrap heading</span></td>
+                                        </tr>
+                                        <tr>
+                                        <td>
+                                            <p><code class="highlighter-rouge">&lt;h4&gt;&lt;/h4&gt;</code></p>
+
+                                        </td>
+                                        <td><span class="h4">h4. Bootstrap heading</span></td>
+                                        </tr>
+                                        <tr>
+                                        <td>
+                                            <p><code class="highlighter-rouge">&lt;h5&gt;&lt;/h5&gt;</code></p>
+
+                                        </td>
+                                        <td><span class="h5">h5. Bootstrap heading</span></td>
+                                        </tr>
+                                        <tr>
+                                        <td>
+                                            <p><code class="highlighter-rouge">&lt;h6&gt;&lt;/h6&gt;</code></p>
+
+                                        </td>
+                                        <td><span class="h6">h6. Bootstrap heading</span></td>
+                                        </tr>
+                                    </tbody>
+                                    </table>
+
+                                        <p class="description">Make a paragraph stand out by adding <code>.lead</code></p>
+
+                                    <p class="lead">
+                                        Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Duis mollis, est non commodo luctus.
+                                    </p>
+                                    <p>You can use the mark tag to <mark>highlight</mark> text.</p>
+                                    <p><del>This line of text is meant to be treated as deleted text.</del></p>
+                                    <p><s>This line of text is meant to be treated as no longer accurate.</s></p>
+                                    <p><ins>This line of text is meant to be treated as an addition to the document.</ins></p>
+                                    <p><u>This line of text will render as underlined</u></p>
+                                    <p><small>This line of text is meant to be treated as fine print.</small></p>
+                                    <p><strong>This line rendered as bold text.</strong></p>
+                                    <p><em>This line rendered as italicized text.</em></p>
+
+
+                                    <p><abbr title="attribute">attr</abbr></p>
+                                    <p><abbr title="HyperText Markup Language" class="initialism">HTML</abbr></p>
+
+
+                                    <blockquote class="blockquote">
+                                    <p class="mb-0">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
+                                    </blockquote>
+                                    <blockquote class="blockquote">
+                                    <p class="mb-0">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
+                                    <footer class="blockquote-footer">Someone famous in <cite title="Source Title">Source Title</cite></footer>
+                                    </blockquote>
+                                    <blockquote class="blockquote text-center">
+                                    <p class="mb-0">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
+                                    <footer class="blockquote-footer">Someone famous in <cite title="Source Title">Source Title</cite></footer>
+                                    </blockquote>
+                                    <blockquote class="blockquote text-right">
+                                    <p class="mb-0">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
+                                    <footer class="blockquote-footer">Someone famous in <cite title="Source Title">Source Title</cite></footer>
+                                    </blockquote>
+
+
+                                    <blockquote class="blockquote bq-primary">
+                                        <p class="bq-title">Primary notification</p>
+                                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maiores quibusdam dignissimos itaque harum illo! Quidem, corporis at quae tempore nisi impedit cupiditate perferendis nesciunt, ex dolores doloremque! Sit, rem, in?</p>
+                                    </blockquote>
+                                    <blockquote class="blockquote bq-default">
+                                        <p class="bq-title">Default notification</p>
+                                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maiores quibusdam dignissimos itaque harum illo! Quidem, corporis at quae tempore nisi impedit cupiditate perferendis nesciunt, ex dolores doloremque! Sit, rem, in?</p>
+                                    </blockquote>
+                                    <blockquote class="blockquote bq-secondary">
+                                        <p class="bq-title">Secondary notification</p>
+                                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maiores quibusdam dignissimos itaque harum illo! Quidem, corporis at quae tempore nisi impedit cupiditate perferendis nesciunt, ex dolores doloremque! Sit, rem, in?</p>
+                                    </blockquote>
+                                    
+                                    <blockquote class="blockquote bq-info">
+                                        <p class="bq-title">Info notification</p>
+                                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maiores quibusdam dignissimos itaque harum illo! Quidem, corporis at quae tempore nisi impedit cupiditate perferendis nesciunt, ex dolores doloremque! Sit, rem, in?</p>
+                                    </blockquote>
+
+                                    <blockquote class="blockquote bq-warning">
+                                        <p class="bq-title">Warning notification</p>
+                                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maiores quibusdam dignissimos itaque harum illo! Quidem, corporis at quae tempore nisi impedit cupiditate perferendis nesciunt, ex dolores doloremque! Sit, rem, in?</p>
+                                    </blockquote>
+
+                                    <blockquote class="blockquote bq-success">
+                                        <p class="bq-title">Success notification</p>
+                                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maiores quibusdam dignissimos itaque harum illo! Quidem, corporis at quae tempore nisi impedit cupiditate perferendis nesciunt, ex dolores doloremque! Sit, rem, in?</p>
+                                    </blockquote>
+
+                                    <blockquote class="blockquote bq-danger">
+                                        <p class="bq-title">Danger notification</p>
+                                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maiores quibusdam dignissimos itaque harum illo! Quidem, corporis at quae tempore nisi impedit cupiditate perferendis nesciunt, ex dolores doloremque! Sit, rem, in?</p>
+                                    </blockquote>
+
+                                    <ul class="list-unstyled">
+                                    <li>Lorem ipsum dolor sit amet</li>
+                                    <li>Consectetur adipiscing elit</li>
+                                    <li>Integer molestie lorem at massa</li>
+                                    <li>Facilisis in pretium nisl aliquet</li>
+                                    <li>Nulla volutpat aliquam velit
+                                        <ul>
+                                        <li>Phasellus iaculis neque</li>
+                                        <li>Purus sodales ultricies</li>
+                                        <li>Vestibulum laoreet porttitor sem</li>
+                                        <li>Ac tristique libero volutpat at</li>
+                                        </ul>
+                                    </li>
+                                    <li>Faucibus porta lacus fringilla vel</li>
+                                    <li>Aenean sit amet erat nunc</li>
+                                    <li>Eget porttitor lorem</li>
+                                    </ul>
+                                    <ul class="list-inline">
+                                    <li class="list-inline-item">Lorem ipsum</li>
+                                    <li class="list-inline-item">Phasellus iaculis</li>
+                                    <li class="list-inline-item">Nulla volutpat</li>
+                                    </ul>
+                                    <dl class="row">
+                                    <dt class="col-sm-3">Description lists</dt>
+                                    <dd class="col-sm-9">A description list is perfect for defining terms.</dd>
+
+                                    <dt class="col-sm-3">Euismod</dt>
+                                    <dd class="col-sm-9">
+                                        <p>Vestibulum id ligula porta felis euismod semper eget lacinia odio sem nec elit.</p>
+                                        <p>Donec id elit non mi porta gravida at eget metus.</p>
+                                    </dd>
+
+                                    <dt class="col-sm-3">Malesuada porta</dt>
+                                    <dd class="col-sm-9">Etiam porta sem malesuada magna mollis euismod.</dd>
+
+                                    <dt class="col-sm-3 text-truncate">Truncated term is truncated</dt>
+                                    <dd class="col-sm-9">Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</dd>
+
+                                    <dt class="col-sm-3">Nesting</dt>
+                                    <dd class="col-sm-9">
+                                        <dl class="row">
+                                        <dt class="col-sm-4">Nested definition list</dt>
+                                        <dd class="col-sm-8">Aenean posuere, tortor sed cursus feugiat, nunc augue blandit nunc.</dd>
+                                        </dl>
+                                    </dd>
+                                    </dl>
                             </div>
 
-</div>
+
+     <div class="row">
+
+
+
+
+
+
+
+        
+
+
+
+
+
+        <div class="col-sm-6">
+
+
+
+<div><a href="0#" class="d-block p-3 mb-2 bg-primary text-white">.bg-primary</a></div>
+                <div><a href="0#" class="d-block p-3 mb-2 bg-secondary text-white">.bg-secondary</a></div>
+                <div><a href="0#" class="d-block p-3 mb-2 bg-success text-white">.bg-success</a></div>
+                <div><a href="0#" class="d-block p-3 mb-2 bg-danger text-white">.bg-danger</a></div>
+                <div><a href="0#" class="d-block p-3 mb-2 bg-warning text-white">.bg-warning</a></div>
+                <div><a href="0#" class="d-block p-3 mb-2 bg-info text-white">.bg-info</a></div>
+                <div><a href="0#" class="d-block p-3 mb-2 bg-light text-dark">.bg-light</a></div>
+                <div><a href="0#" class="d-block p-3 mb-2 bg-dark text-white">.bg-dark</a></div>
+                <div><a href="0#" class="d-block p-3 mb-2 bg-white text-dark">.bg-white</a></div>
+                <br /><br /><br />
+
+
+
+
+
+
+            <p class="text-primary">.text-primary</p>
+            <p class="text-default">.text-default</p>
+            <p class="text-secondary">.text-secondary</p>
+            <p class="text-success">.text-success</p>
+            <p class="text-info">.text-info</p>
+            <p class="text-warning">.text-warning</p>
+            <p class="text-danger">.text-danger</p>
+            <p class="text-light bg-dark">.text-light</p>
+            <p class="text-dark">.text-dark</p>
+            <p class="text-muted">.text-muted</p>
+            <p class="text-white bg-dark">.text-white</p>
+        </div>
+        <div class="col-sm-6">
+            <p><a href="#" class="text-primary">Primary link</a></p>
+            <p><a href="#" class="text-default">Default link</a></p>
+            <p><a href="#" class="text-secondary">Secondary link</a></p>
+            <p><a href="#" class="text-success">Success link</a></p>
+            <p><a href="#" class="text-info">Info link</a></p>
+            <p><a href="#" class="text-warning">Warning link</a></p>
+            <p><a href="#" class="text-danger">Danger link</a></p>
+            <p><a href="#" class="text-light bg-dark">Light link</a></p>
+            <p><a href="#" class="text-dark">Dark link</a></p>
+            <p><a href="#" class="text-muted">Muted link</a></p>
+            <p><a href="#" class="text-white bg-dark">White link</a></p>
+        </div>
+
+        
+        <div class="col-sm-6">
+            <div class="alert alert-primary" role="alert">
+            This is a primary alert—check it out!
+                <hr>
+                <a href="0#" class="alert-link">click here</a>
+            </div>
+            <div class="alert alert-secondary" role="alert">
+                This is a secondary alert—check it out!
+                <hr>
+                <a  href="0#" class="alert-link">click here</a>
+            </div>
+            <div class="alert alert-success" role="alert">
+                This is a success alert—check it out!
+                <hr>
+                <a href="0#" class="alert-link">click here</a>
+            </div>
+            <div class="alert alert-danger" role="alert">
+                This is a danger alert—check it out!
+                <hr>
+                <a href="0#" class="alert-link">click here</a>
+            </div>
+            <div class="alert alert-warning" role="alert">
+                This is a warning alert—check it out!
+                <hr>
+                <a href="0#" class="alert-link">click here</a>
+            </div>
+            <div class="alert alert-info" role="alert">
+                This is a info alert—check it out!
+                <hr>
+                <a href="0#" class="alert-link">click here</a>
+            </div>
+            <div class="alert alert-light" role="alert">
+                This is a light alert—check it out!
+                <hr>
+                <a href="0#" class="alert-link">click here</a>
+            </div>
+            <div class="alert alert-dark" role="alert">
+                This is a dark alert—check it out!
+                <hr>
+                <a href="0#" class="alert-link">click here</a>
+            </div>
+        </div>
+        <div class="col-sm-12">
+            <br /><br /><br /><br />
+            <h2>Breadcrumbs</h2>
+            <nav role="breadcrumb" class="ws-theme-addons-breadcrumb">
+                <ol class="ws-theme-breadcrumb">
+                    <li><a href="#0">Home</a></li>
+                    <li><a href="#0">Gallery</a></li>
+                    <li><a href="#0">Web</a></li>
+                    <li class="current"><em>Project</em></li>
+                </ol>
+            </nav>
+            <nav role="breadcrumb" class="ws-theme-addons-breadcrumb">
+                <ol class="ws-theme-breadcrumb custom-separator">
+                    <li><a href="#0">Home</a></li>
+                    <li><a href="#0">Gallery</a></li>
+                    <li><a href="#0">Web</a></li>
+                    <li class="current"><em>Project</em></li>
+                </ol>
+            </nav>
+            <nav role="breadcrumb" class="ws-theme-addons-breadcrumb">
+                <ol class="ws-theme-breadcrumb custom-separator custom-icons">
+                    <li><a href="#0"> <i class="fa fa-home" aria-hidden="true"></i> Home</a></li>
+                    <li class="current"><i class="fa fa-th-large" aria-hidden="true"></i> <em> Trip Listing</em></li>
+                    <li><a href="#0">Web</a></li>
+                    <li class="current"><em>Project</em></li>
+                </ol>
+            </nav>
+            <nav role="breadcrumb" class="ws-theme-addons-breadcrumb">
+                <ol class="ws-theme-breadcrumb triangle">
+                    <li><a href="#0">Home</a></li>
+                    <li><a href="#0">Gallery</a></li>
+                    <li><a href="#0">Web</a></li>
+                    <li class="current"><em>Project</em></li>
+                </ol>
+            </nav>
+            <nav role="breadcrumb" class="ws-theme-addons-breadcrumb">
+                <ol class="ws-theme-breadcrumb triangle custom-icons">
+                    <li><a href="#0"><i class="fa fa-th-large" aria-hidden="true"></i> Home</a></li>
+                    <li><a href="#0"><i class="fa fa-th-large" aria-hidden="true"></i> Gallery</a></li>
+                    <li class="current"><i class="fa fa-th-large" aria-hidden="true"></i> <em>Web</em></li>
+                    <li><i class="fa fa-th-large" aria-hidden="true"></i> <em>Project</em></li>
+                </ol>
+            </nav>
+            <nav role="breadcrumb" class="ws-theme-addons-breadcrumb">
+                <ol class="ws-theme-multi-steps text-center">
+                    <li class="visited"><a href="#0">Cart</a></li>
+                    <li class="visited" ><a href="#0">Billing</a></li>
+                    <li class="current"><em>Delivery</em></li>
+                    <li><em>Review</em></li>
+                </ol>
+            </nav>
+            <nav role="breadcrumb" class="ws-theme-addons-breadcrumb">
+                <ol class="ws-theme-multi-steps text-center custom-icons">
+                    <li class="visited"><a href="#0">Cart</a></li>
+                    <li class="visited" ><a href="#0">Billing</a></li>
+                    <li class="current"><em>Delivery</em></li>
+                    <li><em>Review</em></li>
+                </ol>
+            </nav>
+            <nav role="breadcrumb" class="ws-theme-addons-breadcrumb">
+                <ol class="ws-theme-multi-steps text-top">
+                    <li class="visited"><a href="#0">Cart</a></li>
+                    <li class="visited" ><a href="#0">Billing</a></li>
+                    <li class="current"><em>Delivery</em></li>
+                    <li><em>Review</em></li>
+                </ol>
+            </nav>
+            <nav role="breadcrumb" class="ws-theme-addons-breadcrumb">
+                <ol class="ws-theme-multi-steps text-bottom count">
+                    <li class="visited"><a href="#0">Cart</a></li>
+                    <li class="visited" ><a href="#0">Billing</a></li>
+                    <li class="current"><em>Delivery</em></li>
+                    <li><em>Review</em></li>
+                </ol>
+            </nav>
+
+        </div>
+
+      </div>
+
+    </div>
+
+
+<!-- vendor js -->
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+<script src="js/ripple.js"></script>
+
+<script type="text/javascript">
+  
+  $(document).ready(function() {
+      $(".rippler").rippler({
+          effectClass      :  'rippler-effect',
+          effectSize      :  16      // Default size (width & height)
+          ,addElement      :  'div'   // e.g. 'svg'(feature)
+          ,duration        :  400
+      });
+  });
+</script>
+
+</body>
+
+</html>

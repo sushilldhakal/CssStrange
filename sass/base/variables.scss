@@ -3,6 +3,7 @@
 $white: #fff;
 $black: #000;
 
+$color_yellow:			 #FFC107;
 $color_red_orange:       #f83632;
 $color_azure_radiance:   #007bff;
 $color_terracotta:       #dd785a;
@@ -14,12 +15,15 @@ $color_light_white:      #f8f8f8;
 $color_dark_black:       #333;
 $color_pale_sky:         #6c757d;
 $color_border_default:   #e0e0e0;
-
+$color_whites_black:     #eee;
+$color_semiwhite-black:  #ddd;
+//font color
+$light_dark: #333;
 
 $primary:               $color_red_orange;
 $default:               $color_azure_radiance;
 $secondary:             $color_terracotta;
-$sucess:                $color_sea_green;
+$success:                $color_sea_green;
 $info:                  $color_science_blue;
 $warning:               $color_pizazz;
 $danger:                $color_tall_poppy;
@@ -27,5 +31,64 @@ $light-white:           $color_light_white;
 $dark-black:            $color_dark_black;
 $muted:                 $color_pale_sky;
 $border-color:          $color_border_default;
+$color_grey:            $color_whites_black;
+$default_font_color:    $light_dark;
+
+//social icon colors
+$coral_red:			 #FF4040;
+$Chambray:			 #3B5998;
+$Picton_blue:		 #55ACEE;
+$Punch:				 #DD4B39;
+$Alizarin_Crimson:	 #ED302F;
+$Lochmara:			 #0082ca;
+$Thunderbird:        #c61118;
+$Calypso: 			 #2e5e86;
+$Mine_Shaft:		 #333;
+$Turquoise: 	     #30cfc0;
+$Yellow_Orange:		 #ffac44;
+$Silver_Tree: 		 #56b68b;
+$Trout:				 #4b515d;
+
+$counter_color:			$coral_red;
+$facebook_color:		$Chambray;
+$twitter_color:			$Picton_blue;
+$google_plus_color:		$Punch;
+$youtube_color:			$Alizarin_Crimson;
+$linkedin_color:		$Lochmara;
+$pinterest_color:		$Thunderbird;
+$instagram_color:		$Calypso;
+$stack_overflow_color:  $Yellow_Orange;
+$slack_color:			$Silver_Tree;
+$github_color:          $Mine_Shaft;
+$email_color:			$Trout;
+$comments-color:		$Turquoise;
+//end social icons colors
+
+//font
+$base-font-family: "Roboto", "Lato",Arial, sans-serif;
+$alt-font-family: "Roboto", Georgia, sans-serif;
+
+$base-font-size: 16px;
+$default-line-height: 1.5;
+$heading-line-height: 1.2;
+$rhythm-unit: "rem";
+
+$font-size-lg:                ($base-font-size * 1.25) !default;
+$font-size-sm:                ($base-font-size * .875) !default;
+
+$font-weight-light:           300 !default;
+$font-weight-normal:          400 !default;
+$font-weight-bold:            700 !default;
+
+$font-weight-base:            $font-weight-normal !default;
+$line-height-base:            1.333 !default;
+
+$h1-font-size:                $base-font-size * 2.5 !default;
+$h2-font-size:                $base-font-size * 2 !default;
+$h3-font-size:                $base-font-size * 1.75 !default;
+$h4-font-size:                $base-font-size * 1.5 !default;
+$h5-font-size:                $base-font-size * 1.25 !default;
+$h6-font-size:                $base-font-size !default;
+
 
 

@@ -7,6 +7,7 @@
     color: $white; 
     background-color: $primary;
 }
+
 .collapse{
   display:none;
   &.in{
@@ -57,13 +58,16 @@ tbody.collapse.in {
     text-align: center;
     white-space: nowrap;
     vertical-align: middle;
+    text-transform:uppercase;
+    margin: .375rem;
     @include no-select();
     @include border-all( 1px, solid, transparent);
-    @include padding(.375rem, .75rem,.375rem, .75rem);
-    @include rhythm(16, 1.5);
+    @include padding(.600rem, 1rem, .600rem, 1rem);
+    @include rhythm(16, 20);
     @include border-radius(0.25rem);
-    @include transition(transition, color .15s, background-color .15s, border-color .15s);
-    @include transition-timing-function(ease-in-out);
+    -webkit-transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,-webkit-box-shadow .15s ease-in-out;
+    -o-transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+    transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out,-webkit-box-shadow .15s ease-in-out;
 
   &-primary{
     border-color: $primary;
@@ -73,6 +77,11 @@ tbody.collapse.in {
     &:hover{
       background-color: transparent;
       color:$primary;
+    }
+
+    &.btn-shadow{
+      color:$white;
+      background-color: $primary;
     }
   }
   
@@ -85,6 +94,10 @@ tbody.collapse.in {
         background-color: $primary;
         color:$white;
       }
+      &.btn-shadow{
+        color:$primary;
+        background-color: transparent;
+      }
   }
   &-default{
       border-color: $default;
@@ -94,6 +107,10 @@ tbody.collapse.in {
       &:hover{
         background-color: transparent;
         color:$default;
+      }
+      &.btn-shadow{
+        background-color: $default;
+        color: $white;
       }
   }
   &-outline-default {
@@ -105,6 +122,10 @@ tbody.collapse.in {
         background-color: $default;
         color:$white;
       }
+      &.btn-shadow{
+        background-color: transparent;
+        color: $default;
+      }
   }
   &-secondary{
       border-color: $secondary;
@@ -114,6 +135,10 @@ tbody.collapse.in {
       &:hover{
         background-color: transparent;
         color:$secondary;
+      }
+      &.btn-shadow{
+        background-color: $secondary;
+        color: $white;
       }
   }
   &-outline-secondary {
@@ -125,25 +150,37 @@ tbody.collapse.in {
         background-color: $secondary;
         color:$white;
       }
+      &.btn-shadow{
+        background-color: transparent;
+        color: $secondary;
+      }
   }
-  &-sucess{
-      border-color: $sucess;
-      background-color: $sucess;
+  &-success{
+      border-color: $success;
+      background-color: $success;
       color: $white;
   
       &:hover{
         background-color: transparent;
-        color:$sucess;
+        color:$success;
+      }
+      &.btn-shadow{
+        background-color: $success;
+        color: $white;
       }
   }
-  &-outline-sucess {
-      border: 2px solid $sucess;
+  &-outline-success {
+      border: 2px solid $success;
       background-color: transparent;
-      color: $sucess;
+      color: $success;
   
       &:hover{
-        background-color: $sucess;
+        background-color: $success;
         color:$white;
+      }
+      &.btn-shadow{
+        background-color: transparent;
+        color: $success;
       }
   }
   &-info{
@@ -155,6 +192,10 @@ tbody.collapse.in {
         background-color: transparent;
         color:$info;
       }
+      &.btn-shadow{
+        background-color: $info;
+        color: $white;
+      }
   }
   &-outline-info {
       border: 2px solid $info;
@@ -164,6 +205,10 @@ tbody.collapse.in {
       &:hover{
         background-color: $info;
         color:$white;
+      }
+      &.btn-shadow{
+        background-color: transparent;
+        color: $info;
       }
   }
   &-warning{
@@ -175,6 +220,10 @@ tbody.collapse.in {
         background-color: transparent;
         color:$warning;
       }
+      &.btn-shadow{
+        background-color: $warning;
+        color: $white;
+      }
   }
   &-outline-warning {
       border: 2px solid $warning;
@@ -184,6 +233,10 @@ tbody.collapse.in {
       &:hover{
         background-color: $warning;
         color:$white;
+      }
+      &.btn-shadow{
+        background-color: transparent;
+        color: $warning;
       }
   }
   &-danger{
@@ -195,6 +248,10 @@ tbody.collapse.in {
         background-color: transparent;
         color:$danger;
       }
+      &.btn-shadow{
+        background-color: $danger;
+        color: $white;
+      }
   }
   &-outline-danger {
       border: 2px solid $danger;
@@ -204,6 +261,10 @@ tbody.collapse.in {
       &:hover{
         background-color: $danger;
         color:$white;
+      }
+      &.btn-shadow{
+        background-color: transparent;
+        color: $danger;
       }
   }
   
@@ -216,6 +277,10 @@ tbody.collapse.in {
         background-color: transparent;
         color:$black;
       }
+      &.btn-shadow{
+        background-color: $black;
+        color: $white;
+      }
   }
   &-outline-black {
       border: 2px solid $black;
@@ -226,8 +291,11 @@ tbody.collapse.in {
         background-color: $black;
         color:$white;
       }
+      &.btn-shadow{
+        background-color: transparent;
+        color: $black;
+      }
   }
-  
   &-lg{
     @include padding(0.7rem, 2rem,0.7rem, 2rem);
   }
@@ -241,7 +309,170 @@ tbody.collapse.in {
       pointer-events: none;
       @include opacity(.65);
   }
+
+  &-shadow{
+    -webkit-box-shadow: 0 2px 5px 0 rgba(0,0,0,.16), 0 2px 10px 0 rgba(0,0,0,.12);
+    box-shadow: 0 2px 5px 0 rgba(0,0,0,.16), 0 2px 10px 0 rgba(0,0,0,.12);
+    &:hover{
+      -webkit-box-shadow: 0 5px 11px 0 rgba(0,0,0,.18), 0 4px 15px 0 rgba(0,0,0,.15);
+      box-shadow: 0 5px 11px 0 rgba(0,0,0,.18), 0 4px 15px 0 rgba(0,0,0,.15);
+      outline: 0;
+    }
+  }
+
+
+  &-floating {
+    width: 47px;
+    height: 47px;
+    position: relative;
+    z-index: 1;
+    vertical-align: middle;
+    display: inline-block;
+    overflow: hidden;
+    @include transition(transtion, all .2s ease-in-out);
+    margin: 10px;
+    -webkit-border-radius: 50%;
+    border-radius: 50%;
+    padding: 0;
+    cursor: pointer;
+    i{
+      display: inline-block;
+      width: inherit;
+      text-align: center;
+      color: $white;
+      font-size: 1.25rem;
+      line-height: 47px;
+    }
+  }
+
+  .fa{
+    position: relative;
+    font-size: .9rem;
+    &.left {
+      margin-right: .3rem;
+    }
+  }
+
+  &-fb {
+    background-color: $facebook_color;
+    color: $white;
+    font-size: .80rem;
+  }
+  &-tw {
+    background-color: $twitter_color;
+    color: $white;
+    font-size: .80rem;
+  }
+  &-gplus {
+    background-color: $google_plus_color;
+    color: $white;
+    font-size: .80rem;
+  } 
+  &-yt {
+    background-color: $youtube_color;
+    color: $white;
+    font-size: .80rem;
+  }
+
+  &-li {
+    background-color: $linkedin_color;
+    color: $white;
+    font-size: .80rem;
+  }
+  &-pin {
+    background-color: $pinterest_color;
+    color: $white;
+    font-size: .80rem;
+  }
+  &-ins {
+    background-color: $instagram_color;
+    color: $white;
+    font-size: .80rem;
+  }
+  &-git {
+    background-color: $github_color;
+    color: $white;
+    font-size: .80rem;
+  }
+  &-comm {
+    background-color: $comments-color;
+    color: $white;
+    font-size: .80rem;
+  }
+  &-so {
+    background-color: $stack_overflow_color;
+    color: $white;
+    font-size: .80rem;
+  }
+
+  &-slack {
+    background-color: $slack_color;
+    color: $white;
+    font-size: .80rem;
+  }
+  &-email {
+    background-color: $email_color;
+    color: $white;
+    font-size: .80rem;
+  }
+
 }
+
+.fb-icon {
+    color: $facebook_color;
+}
+.tw-icon {
+    color: $twitter_color;
+}
+.gplus-icon {
+    color: $google_plus_color;
+}
+.li-icon {
+    color: $linkedin_color;
+}
+.ins-icon {
+    color: $instagram_color;
+}
+.pin-icon {
+    color: $pinterest_color;
+}
+.yt-icon {
+    color: $youtube_color;
+}
+.so-icon {
+    color: $stack_overflow_color;
+}
+.slack-icon {
+    color: $slack_color;
+}
+.git-icon {
+    color: $github_color;
+}
+.comm-icon {
+    color: $comments-color;
+}
+.email-icon {
+    color: $email_color;
+}
+
+.counter {
+  -webkit-box-shadow: 0 2px 5px 0 rgba(0,0,0,.16), 0 2px 10px 0 rgba(0,0,0,.12);
+  box-shadow: 0 2px 5px 0 rgba(0,0,0,.16), 0 2px 10px 0 rgba(0,0,0,.12);
+  position: absolute;
+  z-index: 2;
+  margin-top: 0;
+  margin-left: -23px;
+  -webkit-border-radius: 10em;
+  border-radius: 10em;
+  padding: 1px 7px;
+  background-color: $counter_color;
+  font-size: 11px;
+  color: $white;
+  left: auto;
+}
+
+
+
 .center-block {
   @include center-block();
 }
@@ -272,6 +503,7 @@ tbody.collapse.in {
 .affix {
   position: fixed;
 }
+
 .text{
   &-justify {
     text-align: justify;
@@ -391,9 +623,9 @@ tbody.collapse.in {
     }
   }
   &-success {
-    color: $sucess;
+    color: $success;
     &[href]:hover,&[href]:focus{
-      color: darken($sucess, 15%);
+      color: darken($success, 15%);
     }
   }
   &-info {
@@ -465,10 +697,10 @@ tbody.collapse.in {
   }
 
   &-success {
-    background-color: $sucess;
+    background-color: $success;
     &[href]:hover, 
     &[href]:focus{
-      background-color: darken($sucess, 15%);
+      background-color: darken($success, 15%);
       color:$white;
     }
   }
@@ -558,7 +790,7 @@ tbody.collapse.in {
     border-color: $secondary;
   }
   &-success {
-    border-color: $sucess;
+    border-color: $success;
   }
   &-info {
     border-color: $info;
@@ -600,6 +832,10 @@ tbody.collapse.in {
   }
   &-0 {
     @include border-radius(0);
+  }
+
+  &-20{
+    @include border-radius(30px);
   }
 }
 
@@ -710,10 +946,10 @@ tbody.collapse.in {
   }
   &-success {
     color: $white;
-    background-color:rgba($sucess, .8 );
-    border-color: darken($sucess, 5%);
+    background-color:rgba($success, .8 );
+    border-color: darken($success, 5%);
     hr {
-      border-top-color: lighten($sucess, 5%);
+      border-top-color: lighten($success, 5%);
     }
     .alert-link {
       color: #0b2e13;
@@ -815,7 +1051,7 @@ tbody.collapse.in {
   }
   &-success {
     color: $white;
-    background-color: $sucess;
+    background-color: $success;
     &[href]:hover,&[href]:focus{
       color: $white;
       text-decoration: none;

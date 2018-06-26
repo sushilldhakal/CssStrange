@@ -24,7 +24,8 @@ footer, header, hgroup, menu, nav, section {
   display: block;
 }
 body {
-  line-height: 1;
+  line-height: 1.5;
+  font-size:16px;
 }
 ol, ul {
   list-style: none;
@@ -175,7 +176,7 @@ a {
     
     background: transparent;
     text-decoration:none;
-
+    cursor:pointer;
     // 2
 
     &:focus {
@@ -281,6 +282,14 @@ samp {
         _font-family: 'courier new', monospace;
     }
     font-size: 1em;
+}
+
+code {
+    padding: 2px 4px;
+    font-size: 90%;
+    color: #c7254e;
+    background-color: #f9f2f4;
+    border-radius: 0;
 }
 
 // Improves readability of pre-formatted text in all browsers
@@ -532,6 +541,12 @@ textarea {
 table {
     border-collapse: collapse;
     border-spacing: 0;
+}
+
+td, th {
+    border: 1px solid #b3b3b3;
+    padding: 3px 5px;
+    text-align: left;
 }
 
 input {
