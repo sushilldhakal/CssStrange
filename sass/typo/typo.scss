@@ -1,59 +1,51 @@
 
   //typo 
   body{
-    color:default_font_color;
+    font-size: 1rem;
+    line-height: $line-height-base;
+    font-family: $base-font-family;
+    color:$dark-black;
   }
- 
-  @mixin typography($font-size){
-    $base-line-height: $line-height-base;
-    $margin: $base-line-height;
-    
-    body{
-      font-size: $font-size;
-      line-height: $base-line-height;
-      font-family: $base-font-family;
-      color:$dark-black;
-    }
-    h1, .h1 {
-      font-size: $h1-font-size;
-      line-height: $heading-line-height;
-      margin-top: 0;
-      margin-bottom: .5rem;
-    }
-    h2, .h2 {
-      font-size: $h2-font-size;
-      line-height: $heading-line-height;
-      margin-top: 0;
-      margin-bottom: .5rem;
-    }
-    h3, .h3 {
-      font-size: $h3-font-size;
-      line-height: $heading-line-height;
-      margin-top: 0;
-      margin-bottom: 1.5rem;
-    }
-    h4, .h4 {
-      font-size: $h4-font-size;
-      line-height: $heading-line-height;
-      margin-top: 0;
-      margin-bottom: 1.5rem;
-    }
-    h5, .h5 {
-      font-size: $h5-font-size;
-      line-height: $heading-line-height;
-      margin-top: 0;
-      margin-bottom: .5rem;
-    }
-    h6, .h6 {
-      font-size: $h6-font-size;
-      line-height: $heading-line-height;
-      margin-top: 0;
-      margin-bottom: .5rem;
-    }
+  h1, .h1 {
+    font-size: $default-h1-font-size;
+    line-height: $heading-line-height;
+    margin-top: 0;
+    margin-bottom: .5rem;
+  }
+  h2, .h2 {
+    font-size: $default-h2-font-size;
+    line-height: $heading-line-height;
+    margin-top: 0;
+    margin-bottom: .5rem;
+  }
+  h3, .h3 {
+    font-size: $default-h3-font-size;
+    line-height: $heading-line-height;
+    margin-top: 0;
+    margin-bottom: 1.5rem;
+  }
+  h4, .h4 {
+    font-size: $default-h4-font-size;
+    line-height: $heading-line-height;
+    margin-top: 0;
+    margin-bottom: 1.5rem;
+  }
+  h5, .h5 {
+    font-size: $default-h5-font-size;
+    line-height: $heading-line-height;
+    margin-top: 0;
+    margin-bottom: .5rem;
+  }
+  h6, .h6 {
+    font-size: $default-h6-font-size;
+    line-height: $heading-line-height;
+    margin-top: 0;
+    margin-bottom: .5rem;
   }
 
+
   .lead{
-      font-size: $h5-font-size;
+      font-size: $default-h5-font-size;
       font-weight: 300;
   }
   .blockquote-footer{
@@ -138,6 +130,48 @@ pre{
   }
 } 
 
+ol,ul {
+  margin: 0 0 1.5em 3em
+}
+
+ul {
+  list-style: disc
+}
+
+ul ul {
+  list-style: circle
+}
+
+ul ol ul,ul ul ul {
+  list-style: square
+}
+
+ol {
+  list-style: decimal
+}
+
+li>ol,li>ul {
+  margin-bottom: 0;
+  margin-left: 1.5em
+}
+ul, menu, dir {
+  display: block;
+  list-style-type: disc;
+  -webkit-margin-before: 1em;
+  -webkit-margin-after: 1em;
+  -webkit-margin-start: 0px;
+  -webkit-margin-end: 0px;
+  -webkit-padding-start: 20px;
+}
+
+dt {
+  font-weight: 700
+}
+
+dd {
+  margin-bottom: .5rem;
+  margin-left: 0;
+  margin-right: 0;
+}
 
 
-@include typography(16px);

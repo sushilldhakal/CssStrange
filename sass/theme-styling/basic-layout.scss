@@ -899,116 +899,19 @@ tbody.collapse.in {
     @include padding(100%, null, null,null);
   }
 }
-.alert {
-  position: relative;
-  @include padding(0.75rem, 1.25rem, 0.75rem, 1.25rem);
-  @include margin(null,null,1rem,null);
-  @include border-all(1px,solid,transparent);
-  @include border-radius(0.25rem);
-
-  &-heading {
-    color: inherit;
-  }
-  &-link {
-    font-weight: 700;
-  }
-  &-dismissible {
-    @include padding(null, 4rem, null,null);
-    .close {
-      position: absolute;
-      top: 0;
-      right: 0;
-      @include padding(0.75rem, 1.25rem, 0.75rem, 1.25rem);
-      color: inherit;
-    }
-  }
-  &-primary {
-    color: $white;
-    background-color:rgba($primary, .8 );
-    border-color: darken($primary, 5%);
-    hr {
-      border-top-color: lighten($primary, 5%);
-    }
-    .alert-link {
-      color: #002752;
-    }
-  }
-  &-secondary {
-    color: $white;
-    background-color:rgba($secondary, .8 );
-    border-color: darken($secondary, 5%);
-    hr {
-      border-top-color: lighten($secondary, 5%);
-    }
-    .alert-link {
-      color: #202326;
-    }
-  }
-  &-success {
-    color: $white;
-    background-color:rgba($success, .8 );
-    border-color: darken($success, 5%);
-    hr {
-      border-top-color: lighten($success, 5%);
-    }
-    .alert-link {
-      color: #0b2e13;
-    }
-  }
+//toast alert
+.toast{
   &-info {
-    color: $white;
-    background-color:rgba($info, .8 );
-    border-color: darken($info, 5%);
-    hr {
-      border-top-color: lighten($info, 5%);
-    }
-    .alert-link {
-      color: #062c33;
-    }
+      background-color: $info;
   }
   &-warning {
-    color: $white;
-    background-color:rgba($warning, .8 );
-    border-color: darken($warning, 5%);
-    hr {
-      border-top-color: lighten($warning, 5%);
-    }
-    .alert-link {
-      color: #533f03;
-    }
+      background-color: $warning;
   }
-  &-danger {
-    color: $white;
-    background-color:rgba($danger, .8 );
-    border-color: darken($danger, 5%);
-    hr {
-      border-top-color: lighten($danger, 5%);
-    }
-    .alert-link {
-      color: #491217;
-    }
+  &-success {
+      background-color: $success;
   }
-  &-light {
-    color: $dark-black;
-    background-color:rgba($light-white, .8 );
-    border-color: darken($light-white, 5%);
-    hr {
-      border-top-color: lighten($light-white, 5%);
-    }
-    .alert-link {
-      color: #686868;
-    }
-  }
-  &-dark {
-    color: $white;
-    background-color:rgba($dark-black, .8 );
-    border-color: darken($dark-black, 5%);
-    hr {
-      border-top-color: lighten($dark-black, 5%);
-    }
-    .alert-link {
-      color: #040505;
-    }
+  &-error {
+      background-color: $danger;
   }
 }
 
@@ -1110,6 +1013,96 @@ tbody.collapse.in {
   position: relative;
   top: -1px;
 }
+
+
+
+//blockquots
+.bq{
+  &-primary {
+    border-left-color: $primary;
+    .bq-title {
+        color: $primary;
+    }
+  }
+  &-secondary {
+    border-left-color: $secondary;
+    .bq-title {
+        color: $secondary;
+    }
+  }
+  &-default {
+    border-left-color: $default;
+    .bq-title {
+        color: $default;
+    }
+  }
+  &-info {
+    border-left-color: $info;
+    .bq-title {
+        color: $info;
+    }
+  }
+  &-warning {
+    border-left-color: $warning;
+    .bq-title {
+        color: $warning;
+    }
+  }
+  &-success {
+    border-left-color: $success;
+    .bq-title {
+        color: $success;
+    }
+  }
+  &-warning {
+    border-left-color: $warning;
+    .bq-title {
+        color: $warning;
+    }
+  }
+  &-danger {
+    border-left-color: $danger;
+    .bq-title {
+        color: $danger;
+    }
+  }
+} 
+
+//call to action block
+.cta-callout {
+  padding: 1.25rem;
+  margin-top: 1.25rem;
+  margin-bottom: 1.25rem;
+  border: 1px solid $muted;
+  border-left-width: .25rem;
+  border-radius: .25rem;
+
+  &-primary{
+    border-left-color: $primary;
+  }
+  &-secondary{
+    border-left-color: $secondary;
+  }
+  &-default{
+    border-left-color: $default;
+  }
+  &-info{
+    border-left-color: $info;
+  }
+  &-success{
+    border-left-color: $success;
+  }
+  &-warning{
+    border-left-color: $warning;
+  }
+  &-danger{
+    border-left-color: $danger;
+  }
+
+
+}
+
+
 /**
  * Margin Sets
  */
