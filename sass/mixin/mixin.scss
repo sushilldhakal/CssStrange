@@ -62,7 +62,7 @@
     margin: $top $right $bottom $left;
   }
   //font-size
-  @mixin font-size($sizeValue: 14 ){
+  @mixin font-size($sizeValue: 16 ){
     font-size: $sizeValue + px; //fallback for old browsers
     font-size: (0.0625 * $sizeValue) + rem;
   }
@@ -71,8 +71,8 @@
     line-height: $heightValue + px; //fallback for old browsers
     line-height: (0.0625 * $heightValue) + rem;
   }
-  //rhythm
-  @mixin rhythm($sizeValue: 14, $heightValue: 20) {
+  //rhythm line-height and font-size both combine
+  @mixin rhythm($sizeValue: 16, $heightValue: 20) {
     @include font-size($sizeValue);
     @include line-height($heightValue);
   }
@@ -135,26 +135,43 @@
      @content;
    }
 }
-
+@mixin large-screen-max{
+  @media (max-width: 1199.99px){
+     @content;
+   }
+}
 @mixin mid-screen{
  @media (min-width: 992px){
    @content;
    }
 }
+@mixin mid-screen-max{
+  @media (max-width: 991.99px){
+    @content;
+    }
+ }
 @mixin tab-screen{
  @media (min-width:768px){
    @content;
  }
 }
+@mixin tab-screen-max{
+  @media (max-width:767.99px){
+    @content;
+  }
+ }
 @mixin mob{
  @media (min-width: 576px){
    @content;
    }
 }
+@mixin mob-max{
+  @media (max-width: 575.99px){
+    @content;
+    }
+ }
 @mixin xs{
  @media (min-width: 320px){
    @content;
    }
 }
-
-

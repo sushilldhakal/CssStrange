@@ -24,7 +24,8 @@ footer, header, hgroup, menu, nav, section {
   display: block;
 }
 body {
-  line-height: 1;
+  line-height: 1.5;
+  font-size:16px;
 }
 ol, ul {
   list-style: none;
@@ -175,7 +176,7 @@ a {
     
     background: transparent;
     text-decoration:none;
-
+    cursor:pointer;
     // 2
 
     &:focus {
@@ -197,37 +198,37 @@ a {
 // Addresses font sizes and margins set differently in IE6/7
 // Addresses font sizes within 'section' and 'article' in FF4+, Chrome, S5
 
-@if $normalize_headings == true {
-    h1 {
-        font-size: $h1_font_size;
-        margin: $h1_margin;
-    }
+// @if $normalize_headings == true {
+//     h1 {
+//         font-size: $h1_font_size;
+//         margin: $h1_margin;
+//     }
 
-    h2 {
-        font-size: $h2_font_size;
-        margin: $h2_margin;
-    }
+//     h2 {
+//         font-size: $h2_font_size;
+//         margin: $h2_margin;
+//     }
 
-    h3 {
-        font-size: $h3_font_size;
-        margin: $h3_margin;
-    }
+//     h3 {
+//         font-size: $h3_font_size;
+//         margin: $h3_margin;
+//     }
 
-    h4 {
-        font-size: $h4_font_size;
-        margin: $h4_margin;
-    }
+//     h4 {
+//         font-size: $h4_font_size;
+//         margin: $h4_margin;
+//     }
 
-    h5 {
-        font-size: $h5_font_size;
-        margin: $h5_margin;
-    }
+//     h5 {
+//         font-size: $h5_font_size;
+//         margin: $h5_margin;
+//     }
 
-    h6 {
-        font-size: $h6_font_size;
-        margin: $h6_margin;
-    }
-}
+//     h6 {
+//         font-size: $h6_font_size;
+//         margin: $h6_margin;
+//     }
+// }
 
 // Addresses styling not present in IE 8/9, S5, Chrome
 
@@ -281,6 +282,14 @@ samp {
         _font-family: 'courier new', monospace;
     }
     font-size: 1em;
+}
+
+code {
+    padding: 2px 4px;
+    font-size: 90%;
+    color: #c7254e;
+    background-color: #f9f2f4;
+    border-radius: 0;
 }
 
 // Improves readability of pre-formatted text in all browsers
@@ -532,6 +541,13 @@ textarea {
 table {
     border-collapse: collapse;
     border-spacing: 0;
+    margin: 0 0 1.5em;
+}
+
+td, th {
+    border: 1px solid #b3b3b3;
+    padding: 3px 5px;
+    text-align: left;
 }
 
 input {
@@ -572,16 +588,6 @@ input {
 
 @viewport {
   width: device-width;
-}
-
-/**
- * inherit box model
- */
-
-*,
-*::before,
-*::after {
-  box-sizing: inherit;
 }
 
 /**
@@ -626,4 +632,13 @@ textarea {
 
 [hidden] {
   display: none !important;
+}
+
+
+/* paragraph default styline */
+p {
+    color: $light_dark;
+    font-size: 1rem;
+    line-height: $default-line-height;
+    margin: 0 0 15px;
 }

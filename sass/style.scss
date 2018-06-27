@@ -1,20 +1,21 @@
 //CssStrange
 
-@import 'reset-normalize/normalize';
-
-@import 'typey-master/stylesheets/typey';
-
-@import 'mixin/mixin';
+@import 'grid/grid';
 
 @import 'base/variables';
 
+@import 'reset-normalize/normalize';
+
+@import 'mixin/mixin';
+
 @import 'theme-styling/basic-layout';
 
-
+@import 'typo/typo';
 
 // @import 'theme-styling/theme.scss';
 // @import 'theme-styling/filter';
-// @import 'theme-styling/loader';
+@import 'theme-styling/loader';
+@import 'theme-styling/tooltip-theme';
 // @import 'theme-styling/single-tour';
 // @import 'theme-styling/magnific-pop-up-animation';
 // @import 'theme-styling/review';
